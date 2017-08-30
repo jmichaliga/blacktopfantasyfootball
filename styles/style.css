@@ -1,0 +1,45 @@
+*{
+    font-family: "Helvetica Neue", "Helvetica", sans-serif; 
+    padding: 0px;
+    margin:0px; box-sizing: border-box;
+}
+body{
+    background-color: #EEE;
+}
+
+h1{
+    text-align: center;
+}
+
+ul{
+    list-style: none;
+    padding: 10px;
+    -webkit-transform: scale(0.9);
+}
+
+li{
+    border: 1px solid #DDD;
+    background-color: #FFF;
+    padding: 20px;
+    display: inline-block;
+    width: 300px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+span{
+    margin: 25px 10px 0px 0px;
+    float: left;
+    text-align: center;
+    width: 85px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+img{
+    float: left;
+    margin-right: 10px;
+    width: 65px;
+    height: 65px;
+}
+p{
+    padding: 5px 0px;
+}
