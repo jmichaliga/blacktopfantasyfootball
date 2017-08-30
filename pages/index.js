@@ -6,8 +6,7 @@ import FlatButton from 'material-ui/FlatButton'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin'
-
-import stylesheet from '../styles/index.css'
+import _ from 'lodash'
 
 // Make sure react-tap-event-plugin only gets injected once
 // Needed for material-ui
@@ -19,8 +18,49 @@ if (!process.tapEventInjected) {
 const styles = {
   container: {
     textAlign: 'center',
-    paddingTop: 200
+    paddingTop: 200,
+  },
+  body:{
+    backgroundColor: '#EEE',
+    fontFamily: 'Helvetica Neue',
+    padding: 0,
+    margin: 0,
+    boxSizing: 'border-box'
+  },
+  h1: {
+    textAlign: 'center'
+  },
+  ul: {
+      listStyle: 'none',
+      padding: 10,
+      transform: 'scale(0.9)'
+  },
+  li: {
+      border: '1px solid #DDD',
+      backgroundColor: '#FFF',
+      padding: 20,
+      display: 'inline-block',
+      width: 300,
+      marginLeft: 10,
+      marginBottom: 10
+  },
+  span: {
+      margin: '25px 10px 0px 0px',
+      float: 'left',
+      textAlign: 'center',
+      width: 85,
+      textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+  },
+  img: {
+      float: 'left',
+      marginRight: 10,
+      width: 65,
+      height: 65
+  },
+  p: {
+      padding: '5px 10px'
   }
+
 }
 
 const muiTheme = {
@@ -39,7 +79,82 @@ class Index extends Component {
       userAgent = req.headers['user-agent']
     }
 
-    return { userAgent }
+	let teams = [
+        "Arizona",
+        "Atlanta",
+        "Baltimore",
+        "Buffalo",
+        "Carolina",
+        "Chicago",
+        "Cincinnati",
+        "Cleveland",
+        "Dallas",
+        "Denver",
+        "Detroit",
+        "Green Bay",
+        "Houston",
+        "Indianapolis",
+        "Jacksonville",
+        "KansasCity",
+        "LosAngeles",
+        "Miami",
+        "Minnesota",
+        "NewEngland",
+        "NewOrleans",
+        "NewYorkA",
+        "NewYorkN",
+        "Oakland",
+        "Philadelphia",
+        "Pittsburgh",
+        "SanDiego",
+        "SanFrancisco",
+        "Seattle",
+        "TampaBay",
+        "Tennessee",
+        "Washington"
+	];
+
+	let players = [
+        'GLANZER',
+        'KATZ',
+        'WELCH',
+        'TAGS',
+        'HICKS',
+        'PROBERT',
+        'POPACK',
+        'BARCH',
+        'BAH',
+        'PERRAS',
+        'KLION',
+        'MICHALIGA',
+        'deRUBIO',
+        'KAZIN',
+        'NEWMAN',
+        'BECKER'
+	];
+
+	players = _.shuffle(players);
+	teams = _.shuffle(teams);
+
+
+	let results = [];
+
+	_.forEach(players, function(p){
+		let selection = { name: '', team1: '', team2: ''};
+		
+		selection.name = p;
+
+		selection.team1 = _.sample(teams); 
+		teams = _.pull(teams, selection.team1);
+		
+		selection.team2 = _.sample(teams);
+		teams = _.pull(teams, selection.team2);
+
+		results.push(selection);
+	});
+
+
+    return { userAgent, results }
   }
 
   constructor (props, context) {
@@ -63,7 +178,7 @@ class Index extends Component {
   }
 
   render () {
-    const { userAgent } = this.props
+    const { userAgent, results } = this.props
 
     const standardActions = (
       <FlatButton
@@ -73,22 +188,40 @@ class Index extends Component {
       />
     )
 
+    console.log("!", results);
+
     return (
       <MuiThemeProvider muiTheme={getMuiTheme({userAgent, ...muiTheme})}>
-        <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
         <div style={styles.container}>
+
           <Dialog
             open={this.state.open}
-            title='Super Secret Password'
+            title='The Scores'
             actions={standardActions}
             onRequestClose={this.handleRequestClose}
           >
-            1-2-3-4-5
+            The Scores!
           </Dialog>
-          <h1>Material-UI</h1>
-          <h2>example project</h2>
+
+            <h1 style={styles.h1}>BTFF 2017 Draft Order</h1>
+
+            <ul style={styles.ul}>
+                <li style={styles.li}>
+                    <span style={styles.span}>PERRAS</span>
+                    <img style={styles.img} src="static/SKINS.gif" alt="SKINS"/>
+                    <img style={styles.img} src="static/BUCS.gif" alt="BUCS"/>>
+                </li>
+            </ul>
+
+            <h4>Draft Results are determined by the 2016 Week 4 Preseason Game.</h4>
+            <p style={styles.p}>By the selection above, the total number of points scored by those two teams combined will rank the players in order of which they will make their selections.</p>
+            <p style={styles.p}>If by chance there are any ties, those within the tie have the opportunity to resolve in any creative way possible.</p>
+            <p style={styles.p}>If this doesn't come to a resolution, another random ranking will determine those slots.</p>
+          
+
           <RaisedButton
-            label='Super Secret Password'
+            label='Get Scores'
             secondary
             onTouchTap={this.handleTouchTap}
           />
