@@ -45,6 +45,8 @@ const styles = {
     margin: '25px 10px 0px 0px',
     float: 'left',
     textAlign: 'center',
+    fontFamily: 'monospace',
+    fontSize: 16,
     width: 85,
     textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
   },
@@ -184,8 +186,6 @@ class Index extends Component {
         onTouchTap={this.handleRequestClose}
       />
     )
-
-    //document.body.style.backgroundColor = '#EEE';
 
     return (
       <MuiThemeProvider muiTheme={getMuiTheme({userAgent, ...muiTheme})}>
