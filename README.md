@@ -35,10 +35,10 @@ Using `getInitialProps` we will fetch data in the server for SSR and then in the
 
 This is a simple application to bring in randomization techniques in order to decide Fantasy Football Draft Order. Really dumb stuff.
 
-# Draft Results are determined by the 2017 Week 4 Preseason Game. #
+## Draft Results are determined by the 2017 Week 4 Preseason Game. ##
 
 By the selection above, the total number of points scored by those two teams combined will rank the players in order of which they will make their selections.
 If by chance there are any ties, those within the tie have the opportunity to resolve in any creative way possible.
 If this doesn't come to a resolution, another random ranking will determine those slots.
 
-# Houston and Dallas were removed due to Hurricane Harvey #
+## Houston and Dallas were removed due to Hurricane Harvey ##
