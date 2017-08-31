@@ -137,15 +137,17 @@ class Index extends Component {
 	let results = [];
 
 	_.forEach(players, function(p){
-		let selection = { name: '', team1: '', team2: ''};
+		let selection = { name: '', team1: '', team2: '', img1: null, img2: null};
 		
 		selection.name = p;
 
 		selection.team1 = _.sample(teams); 
-		teams = _.pull(teams, selection.team1);
+    teams = _.pull(teams, selection.team1);
+    selection.img1 = './static/'+selection.team1+'.gif';
 		
 		selection.team2 = _.sample(teams);
-		teams = _.pull(teams, selection.team2);
+    teams = _.pull(teams, selection.team2);
+    selection.img2 = './static/'+selection.team2+'.gif';
 
 		results.push(selection);
 	});
@@ -186,7 +188,7 @@ class Index extends Component {
     )
 
     console.log("!", results);
-    document.body.style.backgroundColor = '#EEE';
+    //document.body.style.backgroundColor = '#EEE';
 
     return (
       <MuiThemeProvider muiTheme={getMuiTheme({userAgent, ...muiTheme})}>
@@ -209,8 +211,8 @@ class Index extends Component {
             {this.props.results.map((result, i) =>
               <li key={i} style={styles.li}>
                 <span style={styles.span}>{result.name}</span>
-                <img style={styles.img} src="{result.team1}.gif" alt="{result.team1}"/>
-                <img style={styles.img} src="{result.team2}.gif" alt="{result.team2}"/>
+                <img style={styles.img} src={result.img1} alt={result.team1}/>
+                <img style={styles.img} src={result.img2} alt={result.team2}/>
               </li>
             )}
 
