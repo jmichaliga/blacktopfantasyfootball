@@ -19,13 +19,10 @@ const styles = {
   container: {
     textAlign: 'center',
     paddingTop: 200,
-  },
-  body:{
-    backgroundColor: '#EEE',
     fontFamily: 'Helvetica Neue',
-    padding: 0,
-    margin: 0,
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    width: 650,
+    margin: '0px auto'
   },
   h1: {
     textAlign: 'center'
@@ -80,57 +77,57 @@ class Index extends Component {
     }
 
 	let teams = [
-        "Arizona",
-        "Atlanta",
-        "Baltimore",
-        "Buffalo",
-        "Carolina",
-        "Chicago",
-        "Cincinnati",
-        "Cleveland",
-        "Dallas",
-        "Denver",
-        "Detroit",
-        "Green Bay",
-        "Houston",
-        "Indianapolis",
-        "Jacksonville",
-        "KansasCity",
-        "LosAngeles",
-        "Miami",
-        "Minnesota",
-        "NewEngland",
-        "NewOrleans",
-        "NewYorkA",
-        "NewYorkN",
-        "Oakland",
-        "Philadelphia",
-        "Pittsburgh",
-        "SanDiego",
-        "SanFrancisco",
-        "Seattle",
-        "TampaBay",
-        "Tennessee",
-        "Washington"
+    "Arizona",
+    "Atlanta",
+    "Baltimore",
+    "Buffalo",
+    "Carolina",
+    "Chicago",
+    "Cincinnati",
+    "Cleveland",
+    "Dallas",
+    "Denver",
+    "Detroit",
+    "Green Bay",
+    "Houston",
+    "Indianapolis",
+    "Jacksonville",
+    "KansasCity",
+    "LosAngeles",
+    "Miami",
+    "Minnesota",
+    "NewEngland",
+    "NewOrleans",
+    "NewYorkA",
+    "NewYorkN",
+    "Oakland",
+    "Philadelphia",
+    "Pittsburgh",
+    "SanDiego",
+    "SanFrancisco",
+    "Seattle",
+    "TampaBay",
+    "Tennessee",
+    "Washington"
 	];
 
 	let players = [
-        'GLANZER',
-        'KATZ',
-        'WELCH',
-        'TAGS',
-        'HICKS',
-        'PROBERT',
-        'POPACK',
-        'BARCH',
-        'BAH',
-        'PERRAS',
-        'KLION',
-        'MICHALIGA',
-        'deRUBIO',
-        'KAZIN',
-        'NEWMAN',
-        'BECKER'
+    'GLANZER',
+    'KATZ',
+    'WELCH',
+    'TAGS',
+    'HICKS',
+    'PROBERT',
+    'POPACK',
+    'BARCH',
+    'BAH',
+    'PERRAS',
+    'KLION',
+    'MICHALIGA',
+    'deRUBIO',
+    'KAZIN',
+    'NEWMAN',
+    'BECKER'
 	];
 
 	players = _.shuffle(players);
@@ -189,6 +186,7 @@ class Index extends Component {
     )
 
     console.log("!", results);
+    document.body.style.backgroundColor = '#EEE';
 
     return (
       <MuiThemeProvider muiTheme={getMuiTheme({userAgent, ...muiTheme})}>
@@ -207,11 +205,15 @@ class Index extends Component {
             <h1 style={styles.h1}>BTFF 2017 Draft Order</h1>
 
             <ul style={styles.ul}>
-                <li style={styles.li}>
-                    <span style={styles.span}>PERRAS</span>
-                    <img style={styles.img} src="static/SKINS.gif" alt="SKINS"/>
-                    <img style={styles.img} src="static/BUCS.gif" alt="BUCS"/>>
-                </li>
+
+            {this.props.results.map((result, i) =>
+              <li key={i} style={styles.li}>
+                <span style={styles.span}>{result.name}</span>
+                <img style={styles.img} src="{result.team1}.gif" alt="{result.team1}"/>
+                <img style={styles.img} src="{result.team2}.gif" alt="{result.team2}"/>
+              </li>
+            )}
+
             </ul>
 
             <h4>Draft Results are determined by the 2016 Week 4 Preseason Game.</h4>
