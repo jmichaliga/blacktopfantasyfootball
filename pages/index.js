@@ -18,7 +18,7 @@ if (!process.tapEventInjected) {
 const styles = {
   container: {
     textAlign: 'center',
-    paddingTop: 200,
+    paddingTop: 50,
     fontFamily: 'Helvetica Neue',
     boxSizing: 'border-box',
     width: 650,
@@ -28,34 +28,34 @@ const styles = {
     textAlign: 'center'
   },
   ul: {
-      listStyle: 'none',
-      padding: 10,
-      transform: 'scale(0.9)'
+    listStyle: 'none',
+    padding: 10,
+    transform: 'scale(0.9)'
   },
   li: {
-      border: '1px solid #DDD',
-      backgroundColor: '#FFF',
-      padding: 20,
-      display: 'inline-block',
-      width: 300,
-      marginLeft: 10,
-      marginBottom: 10
+    border: '1px solid #DDD',
+    backgroundColor: '#EEE',
+    padding: 20,
+    display: 'inline-block',
+    width: 250,
+    marginLeft: 10,
+    marginBottom: 10
   },
   span: {
-      margin: '25px 10px 0px 0px',
-      float: 'left',
-      textAlign: 'center',
-      width: 85,
-      textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+    margin: '25px 10px 0px 0px',
+    float: 'left',
+    textAlign: 'center',
+    width: 85,
+    textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
   },
   img: {
-      float: 'left',
-      marginRight: 10,
-      width: 65,
-      height: 65
+    float: 'left',
+    marginRight: 10,
+    width: 65,
+    height: 65
   },
   p: {
-      padding: '5px 10px'
+    padding: '5px 10px'
   }
 
 }
@@ -76,82 +76,80 @@ class Index extends Component {
       userAgent = req.headers['user-agent']
     }
 
-	let teams = [
-    "Arizona",
-    "Atlanta",
-    "Baltimore",
-    "Buffalo",
-    "Carolina",
-    "Chicago",
-    "Cincinnati",
-    "Cleveland",
-    "Dallas",
-    "Denver",
-    "Detroit",
-    "Green Bay",
-    "Houston",
-    "Indianapolis",
-    "Jacksonville",
-    "KansasCity",
-    "LosAngeles",
-    "Miami",
-    "Minnesota",
-    "NewEngland",
-    "NewOrleans",
-    "NewYorkA",
-    "NewYorkN",
-    "Oakland",
-    "Philadelphia",
-    "Pittsburgh",
-    "SanDiego",
-    "SanFrancisco",
-    "Seattle",
-    "TampaBay",
-    "Tennessee",
-    "Washington"
-	];
+    let teams = [
+      "Arizona",
+      "Atlanta",
+      "Baltimore",
+      "Buffalo",
+      "Carolina",
+      "Chicago",
+      "Cincinnati",
+      "Cleveland",
+      "Dallas",
+      "Denver",
+      "Detroit",
+      "GreenBay",
+      "Houston",
+      "Indianapolis",
+      "Jacksonville",
+      "KansasCity",
+      "LosAngeles",
+      "Miami",
+      "Minnesota",
+      "NewEngland",
+      "NewOrleans",
+      "NewYorkA",
+      "NewYorkN",
+      "Oakland",
+      "Philadelphia",
+      "Pittsburgh",
+      "SanDiego",
+      "SanFrancisco",
+      "Seattle",
+      "TampaBay",
+      "Tennessee",
+      "Washington"
+    ];
 
-	let players = [
-    'GLANZER',
-    'KATZ',
-    'WELCH',
-    'TAGS',
-    'HICKS',
-    'PROBERT',
-    'POPACK',
-    'BARCH',
-    'BAH',
-    'PERRAS',
-    'KLION',
-    'MICHALIGA',
-    'deRUBIO',
-    'KAZIN',
-    'NEWMAN',
-    'BECKER'
-	];
+    let players = [
+      'GLANZER',
+      'KATZ',
+      'WELCH',
+      'TAGS',
+      'HICKS',
+      'PROBERT',
+      'POPACK',
+      'BARCH',
+      'BAH',
+      'PERRAS',
+      'KLION',
+      'MICHALIGA',
+      'deRUBIO',
+      'KAZIN',
+      'NEWMAN',
+      'BECKER'
+    ];
 
-	players = _.shuffle(players);
-	teams = _.shuffle(teams);
+    players = _.shuffle(players);
+    teams = _.shuffle(teams);
 
+    let results = [];
 
-	let results = [];
+    _.forEach(players, function(p){
+      let selection = { name: '', team1: '', team2: '', img1: null, img2: null};
+      
+      selection.name = p;
 
-	_.forEach(players, function(p){
-		let selection = { name: '', team1: '', team2: '', img1: null, img2: null};
-		
-		selection.name = p;
+      selection.team1 = _.sample(teams); 
+      teams = _.pull(teams, selection.team1);
+      selection.img1 = './static/'+selection.team1+'.gif';
+      
+      selection.team2 = _.sample(teams);
+      teams = _.pull(teams, selection.team2);
+      selection.img2 = './static/'+selection.team2+'.gif';
 
-		selection.team1 = _.sample(teams); 
-    teams = _.pull(teams, selection.team1);
-    selection.img1 = './static/'+selection.team1+'.gif';
-		
-		selection.team2 = _.sample(teams);
-    teams = _.pull(teams, selection.team2);
-    selection.img2 = './static/'+selection.team2+'.gif';
-
-		results.push(selection);
-	});
-
+      results.push(selection);
+    });
 
     return { userAgent, results }
   }
@@ -187,7 +185,6 @@ class Index extends Component {
       />
     )
 
-    console.log("!", results);
     //document.body.style.backgroundColor = '#EEE';
 
     return (
@@ -211,8 +208,8 @@ class Index extends Component {
             {this.props.results.map((result, i) =>
               <li key={i} style={styles.li}>
                 <span style={styles.span}>{result.name}</span>
-                <img style={styles.img} src={result.img1} alt={result.team1}/>
-                <img style={styles.img} src={result.img2} alt={result.team2}/>
+                <img style={styles.img} src={result.img1} alt={result.team1} />
+                <img style={styles.img} src={result.img2} alt={result.team2} />
               </li>
             )}
 
