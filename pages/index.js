@@ -87,11 +87,11 @@ class Index extends Component {
       "Chicago",
       "Cincinnati",
       "Cleveland",
-      "Dallas",
+      //"Dallas",
       "Denver",
       "Detroit",
       "GreenBay",
-      "Houston",
+      //"Houston",
       "Indianapolis",
       "Jacksonville",
       "KansasCity",
@@ -128,7 +128,7 @@ class Index extends Component {
       'MICHALIGA',
       'deRUBIO',
       'KAZIN',
-      'NEWMAN',
+      //'NEWMAN',
       'BECKER'
     ];
 
@@ -152,6 +152,8 @@ class Index extends Component {
 
       results.push(selection);
     });
+
+
 
     return { userAgent, results }
   }
@@ -177,7 +179,7 @@ class Index extends Component {
   }
 
   render () {
-    const { userAgent, results } = this.props
+    const { userAgent, results, scores } = this.props
 
     const standardActions = (
       <FlatButton
@@ -198,7 +200,7 @@ class Index extends Component {
             actions={standardActions}
             onRequestClose={this.handleRequestClose}
           >
-            The Scores!
+            Maybe next year make this a sortable list...
           </Dialog>
 
             <h1 style={styles.h1}>BTFF 2017 Draft Order</h1>
