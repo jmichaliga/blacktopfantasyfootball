@@ -1,24 +1,27 @@
 {
   "name": "btff",
-  "version": "1.0.0",
+  "version": "1.1.1",
+  "description": "",
+  "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next",
-    "build": "next build",
-    "start": "next start"
+    "start": "next",
+    "build": "next"
   },
-  "now": "btsh.xyz",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/jmichaliga/blacktopfantasyfootball.git"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "isomorphic-fetch": "^2.2.1",
-    "lodash": "^4.17.4",
-    "material-ui": "^0.19.0",
-    "next": "latest",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-tap-event-plugin": "^2.0.1"
+    "axios": "^0.18.0",
+    "lodash": "^4.17.10",
+    "next": "^6.1.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
   },
-  "license": "ISC"
+  "devDependencies": {
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.2"
+  }
 }
