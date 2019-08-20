@@ -13,7 +13,6 @@ const styles = {
   ul: {
     listStyle: 'none',
     padding: 8,
-    transform: 'scale(0.9)'
   },
   li: {
     border: '1px solid #DDD',
