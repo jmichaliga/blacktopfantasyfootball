@@ -12,6 +12,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "alias": "btff",
   "dependencies": {
     "axios": "^0.18.0",
     "lodash": "^4.17.10",

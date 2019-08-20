@@ -12,53 +12,54 @@ const styles = {
   },
   ul: {
     listStyle: 'none',
-    padding: 10,
+    padding: 8,
     transform: 'scale(0.9)'
   },
   li: {
     border: '1px solid #DDD',
     backgroundColor: '#EEE',
-    padding: 20,
+    padding: 16,
     display: 'inline-block',
-    width: 250,
-    marginLeft: 5,
-    marginBottom: 10
+    marginLeft: 8,
+    marginBottom: 8
   },
   row: {
     width: '100%',
-    float: 'left',
     display: 'flex'
   },
   flex: {
     flex: 1
   },
   span: {
-    margin: '25px 20px 0px 0px',
+    margin: '0px 16px 0px 0px',
     float: 'left',
     textAlign: 'center',
-    fontFamily: 'monospace',
+    fontFamily: 'Helvetica Neue',
     fontSize: 16,
-    width: 85,
-    textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+    width: 64,
+    textShadow: '1px 1px 2px rgba(0,0,0,0.2)'
   },
   span2: {
-    margin: '25px 20px 0px 0px',
+    margin: '16px 16px 0px 0px',
     float: 'left',
     textAlign: 'center',
     fontFamily: 'monospace',
-    fontSize: 14,
+    fontSize: 24,
     alignContent: 'center',
-    width: 75,
-    textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+    width: 64,
+    textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+    background: '#CCC',
+    borderRadius: '4px',
+    padding: '4px'
   },
   img: {
     float: 'left',
     marginRight: 5,
-    width: 65,
-    height: 65
+    width: 64,
+    height: 64
   },
   p: {
-    padding: '5px 10px'
+    padding: '4px 8px'
   }
 }
 

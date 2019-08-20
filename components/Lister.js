@@ -18,7 +18,7 @@ const Lister = (props) => {
               <span style={styles.span}>{result.name}</span>
               <span style={styles.span2}>
                 <strong>
-                  Total: {result.score1 + result.score2}
+                  {result.score1 + result.score2}
                 </strong>
               </span>
             </div>

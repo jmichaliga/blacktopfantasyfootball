@@ -13,22 +13,21 @@ h1{
 
 ul{
     list-style: none;
-    padding: 10px;
-    -webkit-transform: scale(0.9);
+    padding: 8px;
 }
 
 li{
     border: 1px solid #DDD;
     background-color: #FFF;
-    padding: 20px;
+    padding: 16px;
     display: inline-block;
     width: 300px;
-    margin-left: 10px;
-    margin-bottom: 10px;
+    margin-left: 8px;
+    margin-bottom: 8px;
 }
 
 span{
-    margin: 25px 10px 0px 0px;
+    margin: 24px 8px 0px 0px;
     float: left;
     text-align: center;
     width: 85px;
@@ -36,10 +35,10 @@ span{
 }
 img{
     float: left;
-    margin-right: 10px;
-    width: 65px;
-    height: 65px;
+    margin-right: 8px;
+    width: 64px;
+    height: 64px;
 }
 p{
-    padding: 5px 0px;
+    padding: 4px 0px;
 }
