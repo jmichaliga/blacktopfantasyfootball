@@ -14,7 +14,7 @@ export const btffRoster = [
   'PROBERT',
   'POPACK',
   'BARCH',
-  'MICHALIGA',
+  'FREY',
   'deRUBIO',
   'KAZIN',
   'BECKER',
