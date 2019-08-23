@@ -30,6 +30,7 @@ export const assignTeams = (scores, players, teams, cb) => {
 export const assignScores = (scores, results) => {
   _.forEach(results, (selection) => {
     for(let i in scores){
+      if(!scores[i].score){ break } 
       if(scores[i].gameSchedule.visitorTeamAbbr === selection.team1){
         selection.score1 = scores[i].score.visitorTeamScore.pointTotal ? scores[i].score.visitorTeamScore.pointTotal : 0
       }
