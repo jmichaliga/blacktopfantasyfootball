@@ -28,24 +28,22 @@ export const assignTeams = (scores, players, teams, cb) => {
 }
 
 export const assignScores = (scores, results) => {
-  console.log(scores, results)
-  _.forEach(results, (selection) => {
-    console.log('s', selection)
-    for(let i in scores){
-      if(!scores[i].score){ break }
-      if(scores[i].gameSchedule.visitorTeamAbbr === selection.team1){
-        selection.score1 = scores[i].score.visitorTeamScore.pointTotal ? scores[i].score.visitorTeamScore.pointTotal : 0
+  _.forEach(scores, (game) => {
+    if(!game.score) { return }
+    _.forEach(results, (selection) => {
+      if(game.gameSchedule.visitorTeamAbbr === selection.team1){
+        selection.score1 = game.score.visitorTeamScore.pointTotal ? game.score.visitorTeamScore.pointTotal : 0
       }
-      if(scores[i].gameSchedule.homeTeamAbbr === selection.team1){
-        selection.score1 = scores[i].score.homeTeamScore.pointTotal ? scores[i].score.homeTeamScore.pointTotal : 0
+      if(game.gameSchedule.homeTeamAbbr === selection.team1){
+        selection.score1 = game.score.homeTeamScore.pointTotal ? game.score.homeTeamScore.pointTotal : 0
       }
-      if(scores[i].gameSchedule.visitorTeamAbbr === selection.team2){
-        selection.score2 = scores[i].score.visitorTeamScore.pointTotal ? scores[i].score.visitorTeamScore.pointTotal : 0
+      if(game.gameSchedule.visitorTeamAbbr === selection.team2){
+        selection.score2 = game.score.visitorTeamScore.pointTotal ? game.score.visitorTeamScore.pointTotal : 0
       }
-      if(scores[i].gameSchedule.homeTeamAbbr === selection.team2){
-        selection.score2 = scores[i].score.homeTeamScore.pointTotal ? scores[i].score.homeTeamScore.pointTotal : 0
+      if(game.gameSchedule.homeTeamAbbr === selection.team2){
+        selection.score2 = game.score.homeTeamScore.pointTotal ? game.score.homeTeamScore.pointTotal : 0
       }
-    }
+    })
   })
   return results
 }
