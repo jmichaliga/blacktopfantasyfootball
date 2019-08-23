@@ -30,9 +30,7 @@ class Index extends react.Component {
     // const unsecure = 'http://www.nfl.com/liveupdate/scores/scores.json'
     const secure = 'https://feeds.nfl.com/feeds-rs/scores.json'
     axios.get(secure)
-      .then( res => {
-        return res
-      })
+      .then(res => res)
       .then(parsed => {
         scores = parsed.data.gameScores
         week = parsed.data.week

@@ -28,14 +28,16 @@ export const assignTeams = (scores, players, teams, cb) => {
 }
 
 export const assignScores = (scores, results) => {
+  console.log(scores, results)
   _.forEach(results, (selection) => {
+    console.log('s', selection)
     for(let i in scores){
-      if(!scores[i].score){ break } 
+      if(!scores[i].score){ break }
       if(scores[i].gameSchedule.visitorTeamAbbr === selection.team1){
         selection.score1 = scores[i].score.visitorTeamScore.pointTotal ? scores[i].score.visitorTeamScore.pointTotal : 0
       }
       if(scores[i].gameSchedule.homeTeamAbbr === selection.team1){
-        selection.score1 = scores[i].score.homeTeamScore.T ? scores[i].score.homeTeamScore.pointTotal : 0
+        selection.score1 = scores[i].score.homeTeamScore.pointTotal ? scores[i].score.homeTeamScore.pointTotal : 0
       }
       if(scores[i].gameSchedule.visitorTeamAbbr === selection.team2){
         selection.score2 = scores[i].score.visitorTeamScore.pointTotal ? scores[i].score.visitorTeamScore.pointTotal : 0

@@ -12,14 +12,13 @@ let week = 0
 
 const assignTeams = () => {
   results = becker2019
-  console.log('results:', results)
   console.log('scores:', scores)
   if (week === 3) {
-   return assignScores(scores, results)
+    return assignScores(scores, results)
   }
 }
 
-class Index extends react.Component {
+class Becker extends react.Component {
   constructor(){
     super()
     this.state = {
@@ -31,9 +30,7 @@ class Index extends react.Component {
     // const unsecure = 'http://www.nfl.com/liveupdate/scores/scores.json'
     const secure = 'https://feeds.nfl.com/feeds-rs/scores.json'
     axios.get(secure)
-      .then( res => {
-        return res
-      })
+      .then(res => res)
       .then(parsed => {
         scores = parsed.data.gameScores
         week = parsed.data.week
@@ -45,7 +42,7 @@ class Index extends react.Component {
   render () {
     return (
       <div style={styles.container}>
-        <h1 style={styles.h1}>BTFF 2019 Draft Order</h1>
+        <h1 style={styles.h1}>Lee Family 2019 Draft Order</h1>
         <Lister results={results} />
         <h4>Draft Results are determined by the 2019 Week 3 Preseason Game.</h4>
         <p style={styles.p}>By the selection above, the total number of points scored by those two teams combined will rank the players in order of which they will make their selections.</p>
@@ -57,4 +54,4 @@ class Index extends react.Component {
 
 }
 
-export default Index 
+export default Becker 
