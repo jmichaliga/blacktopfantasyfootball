@@ -1,7 +1,7 @@
 export const nflTeams = [
   "ARI", "ATL", "BAL", "BUF", "CAR", "CHI", 
   "CIN", "CLE", "DAL", "DEN", "DET", "GB", 
-  "HOU", "IND", "JAC", "KC", "LA", "MIA",
+  "HOU", "IND", "JAX", "KC", "LA", "MIA",
   "MIN", "NE", "NO", "NYJ", "NYG", "OAK", 
   "PHI", "PIT", "LAC", "SF", "SEA", "TB", 
   "TEN", "WAS"]
@@ -43,7 +43,7 @@ export const beckerRoster = [
 ]
 
 export const roster2019 = [{"name":"FREY","team1":"NO","team2":"WAS","score1":0,"score2":0,"img1":"./static/NO.gif","img2":"./static/WAS.gif"}, 
-{"name":"deRUBIO","team1":"JAC","team2":"LA","score1":0,"score2":0,"img1":"./static/JAC.gif","img2":"./static/LA.gif"}, 
+{"name":"deRUBIO","team1":"JAX","team2":"LA","score1":0,"score2":0,"img1":"./static/JAX.gif","img2":"./static/LA.gif"}, 
 {"name":"DEUTSHE","team1":"KC","team2":"CAR","score1":0,"score2":0,"img1":"./static/KC.gif","img2":"./static/CAR.gif"}, 
 {"name":"BECKER","team1":"SEA","team2":"ATL","score1":0,"score2":0,"img1":"./static/SEA.gif","img2":"./static/ATL.gif"}, 
 {"name":"HICKS","team1":"PIT","team2":"CIN","score1":0,"score2":0,"img1":"./static/PIT.gif","img2":"./static/CIN.gif"}, 
@@ -64,7 +64,7 @@ export const becker2019 = [{"name":"MAX","team1":"LA","team2":"CIN","score1":0,"
 {"name":"MILES","team1":"CAR","team2":"WAS","score1":0,"score2":0,"img1":"../static/CAR.gif","img2":"../static/WAS.gif"}, 
 {"name":"LEE","team1":"CHI","team2":"KC","score1":0,"score2":0,"img1":"../static/CHI.gif","img2":"../static/KC.gif"}, 
 {"name":"GHOST 2","team1":"DET","team2":"GB","score1":0,"score2":0,"img1":"../static/DET.gif","img2":"../static/GB.gif"}, 
-{"name":"FREDDY","team1":"BUF","team2":"JAC","score1":0,"score2":0,"img1":"../static/BUF.gif","img2":"../static/JAC.gif"}, 
+{"name":"FREDDY","team1":"BUF","team2":"JAX","score1":0,"score2":0,"img1":"../static/BUF.gif","img2":"../static/JAX.gif"}, 
 {"name":"PIERCE","team1":"PHI","team2":"SEA","score1":0,"score2":0,"img1":"../static/PHI.gif","img2":"../static/SEA.gif"}, 
 {"name":"JOSH","team1":"CLE","team2":"NYG","score1":0,"score2":0,"img1":"../static/CLE.gif","img2":"../static/NYG.gif"}, 
 {"name":"BEN","team1":"NO","team2":"HOU","score1":0,"score2":0,"img1":"../static/NO.gif","img2":"../static/HOU.gif"}, 
