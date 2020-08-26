@@ -1,77 +1,83 @@
-import react, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import _ from "lodash";
-// import axios from "axios";
+import axios from "axios";
 import styles from "../components/styles";
 import Lister from "../components/Lister";
 import { assignScores } from "../utils";
 import { nhlTeams, btffRoster } from "../consts/nhl";
 
-let players = btffRoster;
-let teams = nhlTeams;
-let results = [];
-let scores = [];
-const pds = [1, 2, 3];
-
-const assignTeams = () => {
-  players = _.shuffle(players);
-  teams = _.shuffle(teams);
-
-  _.forEach(players, function(p) {
-    let selection = {
-      name: "",
-      team1: "",
-      pd1: "",
-      team2: "",
-      pd2: "",
-      score1: 0,
-      score2: 0,
-      img1: null,
-      img2: null,
-    };
-
-    selection.name = p;
-
-    selection.team1 = _.sample(teams);
-    selection.pd1 = _.sample(pds);
-    selection.score1 = 0;
-
-    // teams = _.pull(teams, selection.team1);
-    selection.img1 = "./static/NHL-" + selection.team1 + ".png";
-
-    selection.team2 = _.sample(teams);
-    selection.pd2 = _.sample(pds);
-    selection.score2 = 0;
-    
-    // teams = _.pull(teams, selection.team2);
-    selection.img2 = "./static/NHL-" + selection.team2 + ".png";
-
-    results.push(selection);
-  });
-
-  console.log("results:", results);
-  console.log("scores:", scores);
-
-  return assignScores(scores, results);
-};
-
 const Index = () => {
-  // const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true)
   const [results, setResults] = useState([])
+  const [scores, setScores] = useState([])
+
+  let players = btffRoster;
+  let teams = nhlTeams;
+  const pds = [1, 2, 3];
+  const gameSlots = {
+    "PHI": [0,0, "away"],
+    "NYI": [0,0, "home"],
+    "VGK": [0,1, "away"],
+    "VAN": [0,1, "home"],
+    "TB": [1,0, "away"],
+    "BOS": [1,0, "home"],
+    "COL": [1,1, "away"],
+    "DAL": [1,1, "home"],
+  }
+  
+  const assignTeams = (feed) => {    
+    players = _.shuffle(players);
+    teams = _.shuffle(teams);
+    console.log("feed>", feed)
+
+    players.forEach((p) => {
+      let selection = {
+        name: "",
+        team1: "",
+        pd1: "",
+        team2: "",
+        pd2: "",
+        score1: 0,
+        score2: 0,
+        img1: null,
+        img2: null,
+      };
+  
+      selection.name = p;
+  
+      selection.team1 = _.sample(teams);
+      selection.pd1 = _.sample(pds);
+
+      let f = gameSlots[selection.team1]
+      selection.score1 = feed.dates[f[0]].games[f[1]].linescore.teams[f[2]].shotsOnGoal;
+  
+      // teams = _.pull(teams, selection.team1);
+      selection.img1 = "./static/NHL-" + selection.team1 + ".png";
+  
+      selection.team2 = _.sample(teams);
+      selection.pd2 = _.sample(pds);
+
+      let g = gameSlots[selection.team2]
+      selection.score2 = feed.dates[g[0]].games[g[1]].linescore.teams[g[2]].shotsOnGoal;
+      
+      // teams = _.pull(teams, selection.team2);
+      selection.img2 = "./static/NHL-" + selection.team2 + ".png";
+  
+      results.push(selection);
+    });
+
+    return assignScores(scores, results);
+  };
 
   useEffect(() => {
-    // const unsecure = 'http://www.nfl.com/liveupdate/scores/scores.json'
-    // const secure = 'https://feeds.nfl.com/feeds-rs/scores.json'
-    // axios.get(secure)
-    //   .then( res => {
-    //     return res
-    //   })
-    //   .then(parsed => {
-    //     scores = parsed.data.gameScores
-    //     assignTeams()
-    //     this.setState({ loading: false })
-    //   })
-    let assignments = assignTeams();
-    setResults(assignments)
+    const secure = 'https://statsapi.web.nhl.com/api/v1/schedule?startDate=2020-08-27&endDate=2020-08-28&hydrate=linescore'
+    axios.get(secure)
+      .then(async(parsed) => {
+        await setScores(parsed.data)
+        let assignments = await assignTeams(parsed.data);
+        setResults(assignments)
+        setLoading(false)
+      })
   },[])
 
 
@@ -80,7 +86,7 @@ const Index = () => {
     return (
       <div style={styles.container}>
         <h1 style={styles.h1}>BTFF 2020 Draft Order</h1>
-        <Lister results={results} />
+        {loading ? 'Loading...' : <Lister results={results} /> }
         <h4>
           Draft Results are determined by the 2020 Game 4 of the Stanley Cup
           Finals.

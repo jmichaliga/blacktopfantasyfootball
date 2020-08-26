@@ -1,4 +1,4 @@
-export const nhlTeams = ["BOS", "COL", "NYI", "PHI", "STL", "TB", "VAN", "VGK"]
+export const nhlTeams = ["PHI", "NYI", "VGK", "VAN", "TB", "BOS", "COL", "DAL"];
 
 export const btffRoster = [
   "GLANZER",
@@ -15,4 +15,19 @@ export const btffRoster = [
   "DEUTSHE",
   "MICHALIGA",
   "PERRAS",
+];
+
+export const beckerRoster = [
+  "LEE",
+  "JAY",
+  "PIERCE",
+  "ZOE",
+  "FREDDY",
+  "LISA",
+  "MILES",
+  "MAX",
+  "ANDY",
+  "STEVE",
+  "JOSH",
+  "BEN",
 ];

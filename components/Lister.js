@@ -7,7 +7,7 @@ const Lister = (props) => {
   return (
     <ul style={styles.ul}>
       {results
-        // .sort((a, b) => b.score1 + b.score2 - (a.score1 + a.score2))
+        .sort((a, b) => b.score1 + b.score2 - (a.score1 + a.score2))
         .map((result, i) => (
           <li key={i} style={styles.li}>
             <div style={styles.row}>
