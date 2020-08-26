@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import _ from "lodash";
 import axios from "axios";
 import styles from "../components/styles";
@@ -7,28 +7,28 @@ import { assignScores } from "../utils";
 import { nhlTeams, beckerRoster } from "../consts/nhl";
 
 const Index = () => {
-  const [loading, setLoading] = useState(true)
-  const [results, setResults] = useState([])
-  const [scores, setScores] = useState([])
+  const [loading, setLoading] = useState(true);
+  const [results, setResults] = useState([]);
+  const [scores, setScores] = useState([]);
 
   let players = beckerRoster;
   let teams = nhlTeams;
   const pds = [1, 2, 3];
   const gameSlots = {
-    "PHI": [0,0, "away"],
-    "NYI": [0,0, "home"],
-    "VGK": [0,1, "away"],
-    "VAN": [0,1, "home"],
-    "TB": [1,0, "away"],
-    "BOS": [1,0, "home"],
-    "COL": [1,1, "away"],
-    "DAL": [1,1, "home"],
-  }
-  
-  const assignTeams = (feed) => {    
+    PHI: [0, 0, "away"],
+    NYI: [0, 0, "home"],
+    VGK: [0, 1, "away"],
+    VAN: [0, 1, "home"],
+    TB: [1, 0, "away"],
+    BOS: [1, 0, "home"],
+    COL: [1, 1, "away"],
+    DAL: [1, 1, "home"],
+  };
+
+  const assignTeams = (feed) => {
     players = _.shuffle(players);
     teams = _.shuffle(teams);
-    console.log("feed>", feed)
+    console.log("feed>", feed);
 
     players.forEach((p) => {
       let selection = {
@@ -42,27 +42,29 @@ const Index = () => {
         img1: null,
         img2: null,
       };
-  
+
       selection.name = p;
-  
+
       selection.team1 = _.sample(teams);
       selection.pd1 = _.sample(pds);
 
-      let f = gameSlots[selection.team1]
-      selection.score1 = feed.dates[f[0]].games[f[1]].linescore.teams[f[2]].shotsOnGoal;
-  
-      // teams = _.pull(teams, selection.team1);
+      let f = gameSlots[selection.team1];
+      selection.score1 =
+        feed.dates[f[0]].games[f[1]].linescore.periods[selection.pd1 - 1][f[2]]
+          .shotsOnGoal || 0;
+
       selection.img1 = "./static/NHL-" + selection.team1 + ".png";
-  
+
       selection.team2 = _.sample(teams);
       selection.pd2 = _.sample(pds);
 
-      let g = gameSlots[selection.team2]
-      selection.score2 = feed.dates[g[0]].games[g[1]].linescore.teams[g[2]].shotsOnGoal;
-      
-      // teams = _.pull(teams, selection.team2);
+      let g = gameSlots[selection.team2];
+      selection.score2 =
+        feed.dates[g[0]].games[g[1]].linescore.periods[selection.pd2 - 1][g[2]]
+          .shotsOnGoal || 0;
+
       selection.img2 = "./static/NHL-" + selection.team2 + ".png";
-  
+
       results.push(selection);
     });
 
@@ -70,43 +72,39 @@ const Index = () => {
   };
 
   useEffect(() => {
-    const secure = 'https://statsapi.web.nhl.com/api/v1/schedule?startDate=2020-08-27&endDate=2020-08-28&hydrate=linescore'
-    axios.get(secure)
-      .then(async(parsed) => {
-        await setScores(parsed.data)
-        let assignments = await assignTeams(parsed.data);
-        setResults(assignments)
-        setLoading(false)
-      })
-  },[])
+    const secure =
+      "https://statsapi.web.nhl.com/api/v1/schedule?startDate=2020-08-24&endDate=2020-08-25&hydrate=linescore";
+    axios.get(secure).then(async (parsed) => {
+      await setScores(parsed.data);
+      let assignments = await assignTeams(parsed.data);
+      setResults(assignments);
+      setLoading(false);
+    });
+  }, []);
 
-
-
-
-    return (
-      <div style={styles.container}>
-        <h1 style={styles.h1}>BTFF 2020 Draft Order</h1>
-        {loading ? 'Loading...' : <Lister results={results} /> }
-        <h4>
-          Draft Results are determined by the 2020 Game 4 of the Stanley Cup
-          Finals.
-        </h4>
-        <p style={styles.p}>
-          By the selection above, the total number of shots accumulated by those
-          two teams in their designated periods combined will rank the players
-          in order of which they will make their selections.
-        </p>
-        <p style={styles.p}>
-          If by chance there are any ties, those within the tie have the
-          opportunity to resolve in any creative way possible.
-        </p>
-        <p style={styles.p}>
-          If this doesn't come to a resolution, another random ranking will
-          determine those slots.
-        </p>
-      </div>
-    );
-
-}
+  return (
+    <div style={styles.container}>
+      <h1 style={styles.h1}>BTFF 2020 Draft Order</h1>
+      {loading ? "Loading..." : <Lister results={results} />}
+      <h4>
+        Draft Results are determined by the 2020 Game 4 of the Stanley Cup
+        Finals.
+      </h4>
+      <p style={styles.p}>
+        By the selection above, the total number of shots accumulated by those
+        two teams in their designated periods combined will rank the players in
+        order of which they will make their selections.
+      </p>
+      <p style={styles.p}>
+        If by chance there are any ties, those within the tie have the
+        opportunity to resolve in any creative way possible.
+      </p>
+      <p style={styles.p}>
+        If this doesn't come to a resolution, another random ranking will
+        determine those slots.
+      </p>
+    </div>
+  );
+};
 
 export default Index;

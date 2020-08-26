@@ -25,10 +25,10 @@ const Index = () => {
     "DAL": [1,1, "home"],
   }
   
-  const assignTeams = (feed) => {    
+  const assignTeams = (feed) => {
     players = _.shuffle(players);
     teams = _.shuffle(teams);
-    console.log("feed>", feed)
+    console.log("feed>", feed);
 
     players.forEach((p) => {
       let selection = {
@@ -42,27 +42,29 @@ const Index = () => {
         img1: null,
         img2: null,
       };
-  
+
       selection.name = p;
-  
+
       selection.team1 = _.sample(teams);
       selection.pd1 = _.sample(pds);
 
-      let f = gameSlots[selection.team1]
-      selection.score1 = feed.dates[f[0]].games[f[1]].linescore.teams[f[2]].shotsOnGoal;
-  
-      // teams = _.pull(teams, selection.team1);
+      let f = gameSlots[selection.team1];
+      selection.score1 =
+        feed.dates[f[0]].games[f[1]].linescore.periods[selection.pd1 - 1][f[2]]
+          .shotsOnGoal || 0;
+
       selection.img1 = "./static/NHL-" + selection.team1 + ".png";
-  
+
       selection.team2 = _.sample(teams);
       selection.pd2 = _.sample(pds);
 
-      let g = gameSlots[selection.team2]
-      selection.score2 = feed.dates[g[0]].games[g[1]].linescore.teams[g[2]].shotsOnGoal;
-      
-      // teams = _.pull(teams, selection.team2);
+      let g = gameSlots[selection.team2];
+      selection.score2 =
+        feed.dates[g[0]].games[g[1]].linescore.periods[selection.pd2 - 1][g[2]]
+          .shotsOnGoal || 0;
+
       selection.img2 = "./static/NHL-" + selection.team2 + ".png";
-  
+
       results.push(selection);
     });
 
@@ -70,15 +72,16 @@ const Index = () => {
   };
 
   useEffect(() => {
-    const secure = 'https://statsapi.web.nhl.com/api/v1/schedule?startDate=2020-08-27&endDate=2020-08-28&hydrate=linescore'
-    axios.get(secure)
-      .then(async(parsed) => {
-        await setScores(parsed.data)
-        let assignments = await assignTeams(parsed.data);
-        setResults(assignments)
-        setLoading(false)
-      })
-  },[])
+    const secure =
+      "https://statsapi.web.nhl.com/api/v1/schedule?startDate=2020-08-24&endDate=2020-08-25&hydrate=linescore";
+    axios.get(secure).then(async (parsed) => {
+      await setScores(parsed.data);
+      let assignments = await assignTeams(parsed.data);
+      setResults(assignments);
+      setLoading(false);
+    });
+  }, []);
+
 
 
 
