@@ -1,80 +1,115 @@
-  import react from 'react'
-  import _ from 'lodash'
-  import axios from 'axios'
-  import styles from '../components/styles'
-  import Lister from '../components/Lister'
-  import { assignScores } from '../utils'
-  import { nflTeams, btffRoster } from '../consts'
+import {useState, useEffect} from "react";
+import _ from "lodash";
+import axios from "axios";
+import styles from "../components/styles";
+import Lister from "../components/Lister";
+import { assignScores } from "../utils";
+import { nhlTeams, btffRoster } from "../consts/nhl";
 
-  let players = btffRoster
-  let teams = nflTeams
-  let results = []
-  let scores = []
-  
-  const assignTeams = () => {
-  
-    players = _.shuffle(players)
-    teams = _.shuffle(teams)
+const Index = () => {
+  const [loading, setLoading] = useState(true)
+  const [results, setResults] = useState([])
+  const [scores, setScores] = useState([])
 
-    _.forEach(players, function(p){
-      let selection = { name: '', team1: '', team2: '', score1: 0, score2: 0, img1: null, img2: null }
-      
-      selection.name = p
+  let players = btffRoster;
+  let teams = nhlTeams;
+  const pds = [1, 2, 3];
+  const gameSlots = {
+    "PHI": [0,0, "away"],
+    "NYI": [0,0, "home"],
+    "VGK": [0,1, "away"],
+    "VAN": [0,1, "home"],
+    "TB": [1,0, "away"],
+    "BOS": [1,0, "home"],
+    "COL": [1,1, "away"],
+    "DAL": [1,1, "home"],
+  }
   
+  const assignTeams = (feed) => {
+    players = _.shuffle(players);
+    teams = _.shuffle(teams);
+    console.log("feed>", feed);
+
+    players.forEach((p) => {
+      let selection = {
+        name: "",
+        team1: "",
+        pd1: "",
+        team2: "",
+        pd2: "",
+        score1: 0,
+        score2: 0,
+        img1: null,
+        img2: null,
+      };
+
+      selection.name = p;
+
       selection.team1 = _.sample(teams);
-      selection.score1 = 0
+      selection.pd1 = _.sample(pds);
 
-      teams = _.pull(teams, selection.team1)
-      selection.img1 = './static/'+selection.team1+'.gif'
-      
-      selection.team2 = _.sample(teams)
-      selection.score2 = 0
-      teams = _.pull(teams, selection.team2)
-      selection.img2 = './static/'+selection.team2+'.gif'
-    
-      results.push(selection)
-    })
-  
-    console.log('results:', results)
-    console.log('scores:', scores)
-    return assignScores(scores, results)
-  }
+      let f = gameSlots[selection.team1];
+      selection.score1 =
+        feed.dates[f[0]].games[f[1]].linescore.periods[selection.pd1 - 1][f[2]]
+          .shotsOnGoal || 0;
 
-  class Index extends react.Component {
-    constructor(){
-      super()
-      this.state = {
-        loading: true
-      }
-    }
+      selection.img1 = "./static/NHL-" + selection.team1 + ".png";
 
-    componentDidMount () {
-      // const unsecure = 'http://www.nfl.com/liveupdate/scores/scores.json'
-      const secure = 'https://feeds.nfl.com/feeds-rs/scores.json'
-      axios.get(secure)
-        .then( res => {
-          return res
-        })
-        .then(parsed => {
-          scores = parsed.data.gameScores
-          assignTeams()
-          this.setState({ loading: false })
-        })
-    }
+      selection.team2 = _.sample(teams);
+      selection.pd2 = _.sample(pds);
 
-    render () {
-      return (
-        <div style={styles.container}>
-          <h1 style={styles.h1}>BTFF 2019 Draft Order</h1>
-          <Lister results={results} />
-          <h4>Draft Results are determined by the 2019 Week 3 Preseason Game.</h4>
-          <p style={styles.p}>By the selection above, the total number of points scored by those two teams combined will rank the players in order of which they will make their selections.</p>
-          <p style={styles.p}>If by chance there are any ties, those within the tie have the opportunity to resolve in any creative way possible.</p>
-          <p style={styles.p}>If this doesn't come to a resolution, another random ranking will determine those slots.</p>
-        </div>
-      )
-    }
+      let g = gameSlots[selection.team2];
+      selection.score2 =
+        feed.dates[g[0]].games[g[1]].linescore.periods[selection.pd2 - 1][g[2]]
+          .shotsOnGoal || 0;
 
-  }
+      selection.img2 = "./static/NHL-" + selection.team2 + ".png";
 
-  export default Index 
+      results.push(selection);
+    });
+
+    return assignScores(scores, results);
+  };
+
+  useEffect(() => {
+    const secure =
+      "https://statsapi.web.nhl.com/api/v1/schedule?startDate=2020-08-24&endDate=2020-08-25&hydrate=linescore";
+    axios.get(secure).then(async (parsed) => {
+      await setScores(parsed.data);
+      let assignments = await assignTeams(parsed.data);
+      setResults(assignments);
+      setLoading(false);
+    });
+  }, []);
+
+
+
+
+
+    return (
+      <div style={styles.container}>
+        <h1 style={styles.h1}>BTFF 2020 Draft Order</h1>
+        {loading ? 'Loading...' : <Lister results={results} /> }
+        <h4>
+          Draft Results are determined by the 2020 Game 4 of the Stanley Cup
+          Finals.
+        </h4>
+        <p style={styles.p}>
+          By the selection above, the total number of shots accumulated by those
+          two teams in their designated periods combined will rank the players
+          in order of which they will make their selections.
+        </p>
+        <p style={styles.p}>
+          If by chance there are any ties, those within the tie have the
+          opportunity to resolve in any creative way possible.
+        </p>
+        <p style={styles.p}>
+          If this doesn't come to a resolution, another random ranking will
+          determine those slots.
+        </p>
+      </div>
+    );
+
+}
+
+export default Index;
