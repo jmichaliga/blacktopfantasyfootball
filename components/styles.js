@@ -16,7 +16,7 @@ const styles = {
   },
   li: {
     border: '1px solid #DDD',
-    backgroundColor: '#EEE',
+    backgroundColor: '#888',
     padding: 16,
     display: 'inline-block',
     marginLeft: 8,
@@ -30,7 +30,7 @@ const styles = {
     flex: 1
   },
   span: {
-    margin: '0px 16px 0px 0px',
+    margin: '0px 8px',
     float: 'left',
     textAlign: 'center',
     fontFamily: 'Helvetica Neue',
@@ -39,15 +39,28 @@ const styles = {
     textShadow: '1px 1px 2px rgba(0,0,0,0.2)'
   },
   span2: {
-    margin: '16px 16px 0px 0px',
+    margin: '10px',
     float: 'left',
     textAlign: 'center',
     fontFamily: 'monospace',
     fontSize: 24,
     alignContent: 'center',
-    width: 64,
+    width: 100,
     textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
     background: '#CCC',
+    borderRadius: '4px',
+    padding: '4px'
+  },
+  badge: {
+    position: 'relative',
+    left: 0,
+    textAlign: 'center',
+    fontFamily: 'monospace',
+    fontSize: 12,
+    alignContent: 'center',
+    textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+    color: '#FFF',
+    background: '#222',
     borderRadius: '4px',
     padding: '4px'
   },
