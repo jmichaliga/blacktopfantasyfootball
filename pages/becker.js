@@ -84,7 +84,8 @@ const Index = () => {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.h1}>BTFF 2020 Draft Order</h1>
+      <h1 style={styles.h1}>BTFF 2020 Unofficial Draft Order</h1>
+      <p style={styles.p}>(Unlocked and Showing Game 1 Results)</p>
       {loading ? "Loading..." : <Lister results={results} />}
       <h4>
         Draft Results are determined by the 2020 Game 4 of the Stanley Cup
