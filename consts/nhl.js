@@ -33,20 +33,162 @@ export const beckerRoster = [
 ];
 
 
-export const roster2020 = [{"name":"FREY","team1":"NO","team2":"WAS","score1":0,"score2":0,"img1":"./static/NO.gif","img2":"./static/WAS.gif"}, 
-{"name":"deRUBIO","team1":"JAX","team2":"LA","score1":0,"score2":0,"img1":"./static/JAX.gif","img2":"./static/LA.gif"}, 
-{"name":"DEUTSHE","team1":"KC","team2":"CAR","score1":0,"score2":0,"img1":"./static/KC.gif","img2":"./static/CAR.gif"}, 
-{"name":"BECKER","team1":"SEA","team2":"ATL","score1":0,"score2":0,"img1":"./static/SEA.gif","img2":"./static/ATL.gif"}, 
-{"name":"HICKS","team1":"PIT","team2":"CIN","score1":0,"score2":0,"img1":"./static/PIT.gif","img2":"./static/CIN.gif"}, 
-{"name":"KAZIN","team1":"NYG","team2":"DAL","score1":0,"score2":0,"img1":"./static/NYG.gif","img2":"./static/DAL.gif"}, 
-{"name":"GLANZER","team1":"BAL","team2":"OAK","score1":0,"score2":0,"img1":"./static/BAL.gif","img2":"./static/OAK.gif"}, 
-{"name":"PROBERT","team1":"HOU","team2":"GB","score1":0,"score2":0,"img1":"./static/HOU.gif","img2":"./static/GB.gif"}, 
-{"name":"PERRAS","team1":"NYJ","team2":"DET","score1":0,"score2":0,"img1":"./static/NYJ.gif","img2":"./static/DET.gif"}, 
-{"name":"TAGS","team1":"BUF","team2":"PHI","score1":0,"score2":0,"img1":"./static/BUF.gif","img2":"./static/PHI.gif"}, 
-{"name":"MICHALIGA","team1":"IND","team2":"TEN","score1":0,"score2":0,"img1":"./static/IND.gif","img2":"./static/TEN.gif"}, 
-{"name":"POPACK","team1":"DEN","team2":"NE","score1":0,"score2":0,"img1":"./static/DEN.gif","img2":"./static/NE.gif"}, 
-{"name":"WELCH","team1":"TB","team2":"LAC","score1":0,"score2":0,"img1":"./static/TB.gif","img2":"./static/LAC.gif"}, 
-{"name":"BARCH","team1":"CHI","team2":"CLE","score1":0,"score2":0,"img1":"./static/CHI.gif","img2":"./static/CLE.gif"}]
+export const roster2020 = [
+  {
+    "name": "PERRAS",
+    "team1": "PHI",
+    "pd1": 1,
+    "team2": "VGK",
+    "pd2": 1,
+    "score1": 0,
+    "score2": 0,
+    "img1": "./static/NHL-PHI.png",
+    "img2": "./static/NHL-VGK.png"
+  },
+  {
+    "name": "deRUBIO",
+    "team1": "COL",
+    "pd1": 1,
+    "team2": "VAN",
+    "pd2": 2,
+    "score1": 0,
+    "score2": 0,
+    "img1": "./static/NHL-COL.png",
+    "img2": "./static/NHL-VAN.png"
+  },
+  {
+    "name": "GLANZER",
+    "team1": "TB",
+    "pd1": 2,
+    "team2": "DAL",
+    "pd2": 2,
+    "score1": 0,
+    "score2": 0,
+    "img1": "./static/NHL-TB.png",
+    "img2": "./static/NHL-DAL.png"
+  },
+  {
+    "name": "DEUTSHE",
+    "team1": "VGK",
+    "pd1": 2,
+    "team2": "PHI",
+    "pd2": 3,
+    "score1": 0,
+    "score2": 0,
+    "img1": "./static/NHL-VGK.png",
+    "img2": "./static/NHL-PHI.png"
+  },
+  {
+    "name": "BARCH",
+    "team1": "NYI",
+    "pd1": 1,
+    "team2": "COL",
+    "pd2": 2,
+    "score1": 0,
+    "score2": 0,
+    "img1": "./static/NHL-NYI.png",
+    "img2": "./static/NHL-COL.png"
+  },
+  {
+    "name": "WELCH",
+    "team1": "NYI",
+    "pd1": 2,
+    "team2": "BOS",
+    "pd2": 3,
+    "score1": 0,
+    "score2": 0,
+    "img1": "./static/NHL-NYI.png",
+    "img2": "./static/NHL-BOS.png"
+  },
+  {
+    "name": "PROBERT",
+    "team1": "PHI",
+    "pd1": 2,
+    "team2": "DAL",
+    "pd2": 1,
+    "score1": 0,
+    "score2": 0,
+    "img1": "./static/NHL-PHI.png",
+    "img2": "./static/NHL-DAL.png"
+  },
+  {
+    "name": "HICKS",
+    "team1": "PHI",
+    "pd1": 2,
+    "team2": "BOS",
+    "pd2": 1,
+    "score1": 0,
+    "score2": 0,
+    "img1": "./static/NHL-PHI.png",
+    "img2": "./static/NHL-BOS.png"
+  },
+  {
+    "name": "KAZIN",
+    "team1": "BOS",
+    "pd1": 3,
+    "team2": "COL",
+    "pd2": 2,
+    "score1": 0,
+    "score2": 0,
+    "img1": "./static/NHL-BOS.png",
+    "img2": "./static/NHL-COL.png"
+  },
+  {
+    "name": "POPACK",
+    "team1": "VAN",
+    "pd1": 3,
+    "team2": "DAL",
+    "pd2": 2,
+    "score1": 0,
+    "score2": 0,
+    "img1": "./static/NHL-VAN.png",
+    "img2": "./static/NHL-DAL.png"
+  },
+  {
+    "name": "TAGS",
+    "team1": "NYI",
+    "pd1": 3,
+    "team2": "VAN",
+    "pd2": 2,
+    "score1": 0,
+    "score2": 0,
+    "img1": "./static/NHL-NYI.png",
+    "img2": "./static/NHL-VAN.png"
+  },
+  {
+    "name": "FREY",
+    "team1": "NYI",
+    "pd1": 1,
+    "team2": "TB",
+    "pd2": 1,
+    "score1": 0,
+    "score2": 0,
+    "img1": "./static/NHL-NYI.png",
+    "img2": "./static/NHL-TB.png"
+  },
+  {
+    "name": "MICHALIGA",
+    "team1": "COL",
+    "pd1": 1,
+    "team2": "VGK",
+    "pd2": 3,
+    "score1": 0,
+    "score2": 0,
+    "img1": "./static/NHL-COL.png",
+    "img2": "./static/NHL-VGK.png"
+  },
+  {
+    "name": "BECKER",
+    "team1": "VAN",
+    "pd1": 2,
+    "team2": "PHI",
+    "pd2": 3,
+    "score1": 0,
+    "score2": 0,
+    "img1": "./static/NHL-VAN.png",
+    "img2": "./static/NHL-PHI.png"
+  }
+]
 
 export const becker2020 = [{"name":"MAX","team1":"LA","team2":"CIN","score1":0,"score2":0,"img1":"../static/LA.gif","img2":"../static/CIN.gif"}, 
 {"name":"GHOST 1","team1":"NYJ","team2":"BAL","score1":0,"score2":0,"img1":"../static/NYJ.gif","img2":"../static/BAL.gif"}, 
