@@ -1,3 +1,4 @@
+import _ from "lodash";
 export const assignTeams = (scores, players, teams, cb) => {
   
   players = _.shuffle(players)
