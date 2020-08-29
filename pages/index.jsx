@@ -23,20 +23,21 @@ const Index = () => {
   };
 
   const assignTeams = (feed) => {
-
+    console.log(">", feed)
     results.forEach((p) => {
       let selection = p;
 
       let f = gameSlots[selection.team1];
 
-      if(feed.dates[f[0]].games[f[1]].linescore.periods.length) {
+      if(feed.dates[f[0]].games[f[1]].linescore.periods.length >= selection.pd1) {
         selection.score1 =
           feed.dates[f[0]].games[f[1]].linescore.periods[selection.pd1 - 1][f[2]]
             .shotsOnGoal || 0;
       }
 
       let g = gameSlots[selection.team2];
-      if(feed.dates[g[0]].games[g[1]].linescore.periods.length) {
+      if(feed.dates[g[0]].games[g[1]].linescore.periods.length >= selection.pd2) {
+        console.log("<", g[2], selection.pd2)
         selection.score2 =
           feed.dates[g[0]].games[g[1]].linescore.periods[selection.pd2 - 1][g[2]]
             .shotsOnGoal || 0;
