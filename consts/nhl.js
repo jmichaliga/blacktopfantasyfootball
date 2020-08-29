@@ -2,17 +2,17 @@ export const nhlTeams = ["PHI", "NYI", "VGK", "VAN", "TB", "BOS", "COL", "DAL"];
 
 export const btffRoster = [
   "GLANZER",
-  "WELCH",
+  "🏒",
   "TAGS",
   "HICKS",
   "PROBERT",
   "POPACK",
-  "BARCH",
+  "RUSSO",
   "FREY",
   "deRUBIO",
   "KAZIN",
   "BECKER",
-  "DEUTSHE",
+  "🇷🇺",
   "MICHALIGA",
   "PERRAS",
 ];
@@ -68,7 +68,7 @@ export const roster2020 = [
     "img2": "./static/NHL-DAL.png"
   },
   {
-    "name": "DEUTSHE",
+    "name": "🇷🇺",
     "team1": "VGK",
     "pd1": 2,
     "team2": "PHI",
@@ -79,7 +79,7 @@ export const roster2020 = [
     "img2": "./static/NHL-PHI.png"
   },
   {
-    "name": "BARCH",
+    "name": "RUSSO",
     "team1": "NYI",
     "pd1": 1,
     "team2": "COL",
@@ -90,7 +90,7 @@ export const roster2020 = [
     "img2": "./static/NHL-COL.png"
   },
   {
-    "name": "WELCH",
+    "name": "🏒",
     "team1": "NYI",
     "pd1": 2,
     "team2": "BOS",

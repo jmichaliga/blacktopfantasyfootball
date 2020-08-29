@@ -3,7 +3,7 @@ import axios from "axios";
 import _ from "lodash";
 import styles from "../components/styles";
 import Lister from "../components/Lister";
-import { assignNHLTeams } from "../utils";
+import { parseFeed } from "../utils";
 import { becker2020 } from "../consts/nhl";
 
 const Index = () => {
@@ -14,11 +14,10 @@ const Index = () => {
     const secure =
       "https://statsapi.web.nhl.com/api/v1/schedule?startDate=2020-08-29&endDate=2020-08-30&hydrate=linescore";
     axios.get(secure).then(async (parsed) => {
-      const assignments = await assignNHLTeams(parsed.data);
+      const assignments = await parseFeed(parsed.data, results);
       setResults(assignments);
       setLoading(false);
     });
-
   }, []);
 
   return (
