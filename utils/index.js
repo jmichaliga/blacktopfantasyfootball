@@ -1,6 +1,5 @@
 import _ from "lodash";
 export const assignTeams = (scores, players, teams, cb) => {
-  
   players = _.shuffle(players)
   teams = _.shuffle(teams)
 
@@ -26,6 +25,47 @@ export const assignTeams = (scores, players, teams, cb) => {
   console.log('results:', results)
   console.log('scores:', scores)
   return cb(scores, results)
+}
+
+export const parseFeed = (feed, results) => {
+  const gameSlots = {
+    TB: [0, 2, "away"],
+    BOS: [0, 2, "home"],
+    COL: [1, 0, "away"],
+    DAL: [1, 0, "home"],
+    PHI: [1, 1, "away"],
+    NYI: [1, 1, "home"],
+    VGK: [1, 2, "away"],
+    VAN: [1, 2, "home"],
+  };
+
+  results.forEach((p) => {
+    let selection = p;
+
+    let f = gameSlots[selection.team1];
+
+    console.log(">", feed.dates[f[0]]);
+
+    if(feed.dates[f[0]].games[f[1]].linescore.periods.length >= selection.pd1) {
+      selection.score1 =
+        feed.dates[f[0]].games[f[1]].linescore.periods[selection.pd1 - 1][f[2]]
+          .shotsOnGoal || 0;
+    }
+
+    let g = gameSlots[selection.team2];
+    if(feed.dates[g[0]].games[g[1]].linescore.periods.length >= selection.pd2) {
+      selection.score2 =
+        feed.dates[g[0]].games[g[1]].linescore.periods[selection.pd2 - 1][g[2]]
+          .shotsOnGoal || 0;
+    }
+  });
+
+  return results;
+  // return assignNHLScores(feed, _.shuffle(results));
+};
+
+const assignNHLScores = (scores, results) => {
+  console.log("res>", scores, results)
 }
 
 export const assignScores = (scores, results) => {

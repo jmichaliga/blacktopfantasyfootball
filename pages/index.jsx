@@ -3,60 +3,21 @@ import axios from "axios";
 import _ from "lodash";
 import styles from "../components/styles";
 import Lister from "../components/Lister";
-import { assignScores } from "../utils";
+import { parseFeed } from "../utils";
 import { roster2020 } from "../consts/nhl";
 
 const Index = () => {
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState(roster2020);
-  const [scores, setScores] = useState([]);
-
-  const gameSlots = {
-    TB: [0, 0, "away"],
-    BOS: [0, 0, "home"],
-    COL: [1, 0, "away"],
-    DAL: [1, 0, "home"],
-    PHI: [1, 1, "away"],
-    NYI: [1, 1, "home"],
-    VGK: [1, 2, "away"],
-    VAN: [1, 2, "home"],
-  };
-
-  const assignTeams = (feed) => {
-    console.log(">", feed)
-    results.forEach((p) => {
-      let selection = p;
-
-      let f = gameSlots[selection.team1];
-
-      if(feed.dates[f[0]].games[f[1]].linescore.periods.length >= selection.pd1) {
-        selection.score1 =
-          feed.dates[f[0]].games[f[1]].linescore.periods[selection.pd1 - 1][f[2]]
-            .shotsOnGoal || 0;
-      }
-
-      let g = gameSlots[selection.team2];
-      if(feed.dates[g[0]].games[g[1]].linescore.periods.length >= selection.pd2) {
-        console.log("<", g[2], selection.pd2)
-        selection.score2 =
-          feed.dates[g[0]].games[g[1]].linescore.periods[selection.pd2 - 1][g[2]]
-            .shotsOnGoal || 0;
-      }
-    });
-
-    return assignScores(scores, _.shuffle(results));
-  };
 
   useEffect(() => {
     const secure =
       "https://statsapi.web.nhl.com/api/v1/schedule?startDate=2020-08-29&endDate=2020-08-30&hydrate=linescore";
     axios.get(secure).then(async (parsed) => {
-      await setScores(parsed.data);
-      let assignments = await assignTeams(parsed.data);
+      const assignments = await parseFeed(parsed.data, results);
       setResults(assignments);
       setLoading(false);
     });
-
   }, []);
 
   return (
