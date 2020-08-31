@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import _ from "lodash";
 import styles from "../components/styles";
 import Lister from "../components/Lister";
 import { parseFeed } from "../utils";
@@ -15,7 +14,6 @@ const Index = () => {
       "https://statsapi.web.nhl.com/api/v1/schedule?startDate=2020-08-29&endDate=2020-08-30&hydrate=linescore";
     axios.get(secure).then(async (parsed) => {
       const assignments = await parseFeed(parsed.data, results);
-      console.log("><", parsed.data, assignments)
       setResults(assignments);
       setLoading(false);
     });
