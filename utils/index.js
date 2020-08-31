@@ -39,29 +39,31 @@ export const parseFeed = (feed, results) => {
   const gameSlots = {
     TB: [0, 0, "away", 2019030224],
     BOS: [0, 0, "home", 2019030224],
-    COL: [1, 2, "away", 2019030244],
-    DAL: [1, 2, "home", 2019030244],
-    PHI: [1, 0, "away", 2019030214],
-    NYI: [1, 0, "home", 2019030214],
-    VGK: [1, 1, "away", 2019030234],
-    VAN: [1, 1, "home", 2019030234],
+    COL: [1, 0, "away", 2019030244],
+    DAL: [1, 0, "home", 2019030244],
+    PHI: [1, 1, "away", 2019030214],
+    NYI: [1, 1, "home", 2019030214],
+    VGK: [1, 2, "away", 2019030234],
+    VAN: [1, 2, "home", 2019030234],
   };
 
   results.forEach((p) => {
     let selection = p;
 
     let f = gameSlots[selection.team1];
-    const game = feed.dates[f[0]].games.find((g) => g.gamePk === f[3]);
+    const game1 = feed.dates[f[0]].games.find(gm => gm.gamePk === f[3]);
 
-    if (game.linescore.periods.length >= selection.pd1) {
+    if (game1.linescore.periods.length >= selection.pd1) {
       selection.score1 =
-        game.linescore.periods[selection.pd1 - 1][f[2]].shotsOnGoal || 0;
+        game1.linescore.periods[selection.pd1 - 1][f[2]].shotsOnGoal || 0;
     }
 
     let g = gameSlots[selection.team2];
-    if (game.linescore.periods.length >= selection.pd2) {
+    const game2 = feed.dates[g[0]].games.find(gm => gm.gamePk === g[3]);
+
+    if (game2.linescore.periods.length >= selection.pd2) {
       selection.score2 =
-        game.linescore.periods[selection.pd2 - 1][g[2]].shotsOnGoal || 0;
+        game2.linescore.periods[selection.pd2 - 1][g[2]].shotsOnGoal || 0;
     }
   });
 
