@@ -71,3 +71,114 @@ export const becker2019 = [{"name":"MAX","team1":"LA","team2":"CIN","score1":0,"
 {"name":"ANDY","team1":"NE","team2":"IND","score1":0,"score2":0,"img1":"../static/NE.gif","img2":"../static/IND.gif"}, 
 {"name":"STEVE","team1":"TEN","team2":"SF","score1":0,"score2":0,"img1":"../static/TEN.gif","img2":"../static/SF.gif"}, 
 {"name":"LISA","team1":"DAL","team2":"LAC","score1":0,"score2":0,"img1":"../static/DAL.gif","img2":"../static/LAC.gif"}]
+
+export const becker2021 = [
+  {
+      "name": "ANDY",
+      "team1": "GB",
+      "team2": "CAR",
+      "score1": 0,
+      "score2": 0,
+      "img1": "./static/GB.gif",
+      "img2": "./static/CAR.gif"
+  },
+  {
+      "name": "MILES",
+      "team1": "BUF",
+      "team2": "JAX",
+      "score1": 0,
+      "score2": 0,
+      "img1": "./static/BUF.gif",
+      "img2": "./static/JAX.gif"
+  },
+  {
+      "name": "PIERCE",
+      "team1": "OAK",
+      "team2": "KC",
+      "score1": 0,
+      "score2": 0,
+      "img1": "./static/OAK.gif",
+      "img2": "./static/KC.gif"
+  },
+  {
+      "name": "JOSH",
+      "team1": "SEA",
+      "team2": "PIT",
+      "score1": 0,
+      "score2": 0,
+      "img1": "./static/SEA.gif",
+      "img2": "./static/PIT.gif"
+  },
+  {
+      "name": "BEN",
+      "team1": "IND",
+      "team2": "DAL",
+      "score1": 0,
+      "score2": 0,
+      "img1": "./static/IND.gif",
+      "img2": "./static/DAL.gif"
+  },
+  {
+      "name": "LISA",
+      "team1": "CLE",
+      "team2": "DET",
+      "score1": 0,
+      "score2": 0,
+      "img1": "./static/CLE.gif",
+      "img2": "./static/DET.gif"
+  },
+  {
+      "name": "JAY",
+      "team1": "KC",
+      "team2": "MIN",
+      "score1": 0,
+      "score2": 0,
+      "img1": "./static/KC.gif",
+      "img2": "./static/MIN.gif"
+  },
+  {
+      "name": "ZOE",
+      "team1": "CIN",
+      "team2": "NYJ",
+      "score1": 0,
+      "score2": 0,
+      "img1": "./static/CIN.gif",
+      "img2": "./static/NYJ.gif"
+  },
+  {
+      "name": "FREDDY",
+      "team1": "OAK",
+      "team2": "DAL",
+      "score1": 0,
+      "score2": 0,
+      "img1": "./static/OAK.gif",
+      "img2": "./static/DAL.gif"
+  },
+  {
+      "name": "MAX",
+      "team1": "HOU",
+      "team2": "SF",
+      "score1": 0,
+      "score2": 0,
+      "img1": "./static/HOU.gif",
+      "img2": "./static/SF.gif"
+  },
+  {
+      "name": "STEVE",
+      "team1": "ATL",
+      "team2": "HOU",
+      "score1": 0,
+      "score2": 0,
+      "img1": "./static/ATL.gif",
+      "img2": "./static/HOU.gif"
+  },
+  {
+      "name": "LEE",
+      "team1": "MIA",
+      "team2": "WAS",
+      "score1": 0,
+      "score2": 0,
+      "img1": "./static/MIA.gif",
+      "img2": "./static/WAS.gif"
+  },
+]
