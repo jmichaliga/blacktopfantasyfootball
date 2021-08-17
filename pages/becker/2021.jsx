@@ -1,10 +1,10 @@
 // import { useState, useEffect } from "react";
 import _ from "lodash";
 // import axios from "axios";
-import styles from "../components/styles";
-import Lister from "../components/Lister";
+import styles from "../../components/styles";
+import Lister from "../../components/Lister";
 // import { assignScores } from "../utils";
-import { becker2021 } from "../consts";
+import { becker2021 } from "../../consts";
 
 const Index2021 = () => {
   // const [loading, setLoading] = useState(true);
