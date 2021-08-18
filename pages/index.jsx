@@ -9,6 +9,8 @@ const Index = () => {
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState(roster2020);
 
+  // `https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/2021PRE/3?key=${API_KEY}`
+
   useEffect(() => {
     const secure =
       "https://statsapi.web.nhl.com/api/v1/schedule?startDate=2020-08-29&endDate=2020-08-30&hydrate=linescore";
