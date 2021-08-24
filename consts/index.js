@@ -72,6 +72,246 @@ export const becker2019 = [{"name":"MAX","team1":"LA","team2":"CIN","score1":0,"
 {"name":"STEVE","team1":"TEN","team2":"SF","score1":0,"score2":0,"img1":".../../static/TEN.gif","img2":".../../static/SF.gif"}, 
 {"name":"LISA","team1":"DAL","team2":"LAC","score1":0,"score2":0,"img1":".../../static/DAL.gif","img2":".../../static/LAC.gif"}]
 
+export const btff2021 =[
+    {
+        "name": "WELCH",
+        "team1": "SEA",
+        "team2": "WAS",
+        "score1": 3,
+        "score2": 17,
+        "img1": "../../static/SEA.gif",
+        "img2": "../../static/WAS.gif"
+    },
+    {
+        "name": "PERRAS",
+        "team1": "DEN",
+        "team2": "CLE",
+        "score1": 30,
+        "score2": 17,
+        "img1": "../../static/DEN.gif",
+        "img2": "../../static/CLE.gif"
+    },
+    {
+        "name": "MICHALIGA",
+        "team1": "BUF",
+        "team2": "CAR",
+        "score1": 41,
+        "score2": 3,
+        "img1": "../../static/BUF.gif",
+        "img2": "../../static/CAR.gif"
+    },
+    {
+        "name": "POPACK",
+        "team1": "PIT",
+        "team2": "JAX",
+        "score1": 26,
+        "score2": 21,
+        "img1": "../../static/PIT.gif",
+        "img2": "../../static/JAX.gif"
+    },
+    {
+        "name": "FREY",
+        "team1": "NYJ",
+        "team2": "PHI",
+        "score1": 23,
+        "score2": 0,
+        "img1": "../../static/NYJ.gif",
+        "img2": "../../static/PHI.gif"
+    },
+    {
+        "name": "DeRUBIO",
+        "team1": "DET",
+        "team2": "HOU",
+        "score1": 20,
+        "score2": 20,
+        "img1": "../../static/DET.gif",
+        "img2": "../../static/HOU.gif"
+    },
+    {
+        "name": "BECKER",
+        "team1": "NYG",
+        "team2": "TEN",
+        "score1": 13,
+        "score2": 34,
+        "img1": "../../static/NYG.gif",
+        "img2": "../../static/TEN.gif"
+    },
+    {
+        "name": "KAZIN",
+        "team1": "LAC",
+        "team2": "OAK",
+        "score1": 10,
+        "score2": 17,
+        "img1": "../../static/LAC.gif",
+        "img2": "../../static/OAK.gif"
+    },
+    {
+        "name": "PROBERT",
+        "team1": "GB",
+        "team2": "BUF",
+        "score1": 14,
+        "score2": 41,
+        "img1": "../../static/GB.gif",
+        "img2": "../../static/BUF.gif"
+    },
+    {
+        "name": "TAGS",
+        "team1": "MIN",
+        "team2": "MIA",
+        "score1": 10,
+        "score2": 37,
+        "img1": "../../static/MIN.gif",
+        "img2": "../../static/MIA.gif"
+    },
+    {
+        "name": "BARCH",
+        "team1": "NE",
+        "team2": "BAL",
+        "score1": 35,
+        "score2": 20,
+        "img1": "../../static/NE.gif",
+        "img2": "../../static/BAL.gif"
+    },
+    {
+        "name": "GLANZER",
+        "team1": "ARI",
+        "team2": "DAL",
+        "score1": 10,
+        "score2": 14,
+        "img1": "../../static/ARI.gif",
+        "img2": "../../static/DAL.gif"
+    },
+    {
+        "name": "CASCA",
+        "team1": "CIN",
+        "team2": "ATL",
+        "score1": 17,
+        "score2": 17,
+        "img1": "../../static/CIN.gif",
+        "img2": "../../static/ATL.gif"
+    },
+    {
+        "name": "RUSSO",
+        "team1": "SF",
+        "team2": "CHI",
+        "score1": 15,
+        "score2": 15,
+        "img1": "../../static/SF.gif",
+        "img2": "../../static/CHI.gif"
+    }
+]
+
+export const results2021 = [
+    {
+        "name": "WELCH",
+        "team1": "GB",
+        "team2": "CAR",
+        "score1": 0,
+        "score2": 0,
+        "img1": "../../static/GB.gif",
+        "img2": "../../static/CAR.gif"
+    },
+    {
+        "name": "PERRAS",
+        "team1": "BUF",
+        "team2": "JAX",
+        "score1": 0,
+        "score2": 0,
+        "img1": "../../static/BUF.gif",
+        "img2": "../../static/JAX.gif"
+    },
+    {
+        "name": "PIERCE",
+        "team1": "NYG",
+        "team2": "KC",
+        "score1": 0,
+        "score2": 0,
+        "img1": "../../static/NYG.gif",
+        "img2": "../../static/KC.gif"
+    },
+    {
+        "name": "JOSH",
+        "team1": "SEA",
+        "team2": "PIT",
+        "score1": 0,
+        "score2": 0,
+        "img1": "../../static/SEA.gif",
+        "img2": "../../static/PIT.gif"
+    },
+    {
+        "name": "BEN",
+        "team1": "IND",
+        "team2": "DAL",
+        "score1": 0,
+        "score2": 0,
+        "img1": "../../static/IND.gif",
+        "img2": "../../static/DAL.gif"
+    },
+    {
+        "name": "LISA",
+        "team1": "CLE",
+        "team2": "DET",
+        "score1": 0,
+        "score2": 0,
+        "img1": "../../static/CLE.gif",
+        "img2": "../../static/DET.gif"
+    },
+    {
+        "name": "JAY",
+        "team1": "NE",
+        "team2": "MIN",
+        "score1": 0,
+        "score2": 0,
+        "img1": "../../static/NE.gif",
+        "img2": "../../static/MIN.gif"
+    },
+    {
+        "name": "ZOE",
+        "team1": "CIN",
+        "team2": "NYJ",
+        "score1": 13,
+        "score2": 0,
+        "img1": "../../static/CIN.gif",
+        "img2": "../../static/NYJ.gif"
+    },
+    {
+        "name": "FREDDY",
+        "team1": "OAK",
+        "team2": "BAL",
+        "score1": 0,
+        "score2": 0,
+        "img1": "../../static/OAK.gif",
+        "img2": "../../static/BAL.gif"
+    },
+    {
+        "name": "MAX",
+        "team1": "PHI",
+        "team2": "SF",
+        "score1": 0,
+        "score2": 0,
+        "img1": "../../static/PHI.gif",
+        "img2": "../../static/SF.gif"
+    },
+    {
+        "name": "STEVE",
+        "team1": "ATL",
+        "team2": "HOU",
+        "score1": 0,
+        "score2": 0,
+        "img1": "../../static/ATL.gif",
+        "img2": "../../static/HOU.gif"
+    },
+    {
+        "name": "LEE",
+        "team1": "MIA",
+        "team2": "WAS",
+        "score1": 0,
+        "score2": 0,
+        "img1": "../../static/MIA.gif",
+        "img2": "../../static/WAS.gif"
+    },
+  ]
+
 export const becker2021 = [
   {
       "name": "ANDY",
@@ -182,3 +422,4 @@ export const becker2021 = [
       "img2": "../../static/WAS.gif"
   },
 ]
+
