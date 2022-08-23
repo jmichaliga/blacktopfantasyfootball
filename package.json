@@ -15,7 +15,7 @@
   "alias": "btff",
   "dependencies": {
     "axios": "^0.18.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "next": "^6.1.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
