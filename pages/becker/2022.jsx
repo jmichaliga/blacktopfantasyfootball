@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import styles from '../components/styles'
-import Lister from '../components/Lister'
+import styles from '../../components/styles'
+import Lister from '../../components/Lister'
 
-import { nflTeams, btff2022 } from '../consts'
+import { nflTeams, becker2022 } from '../../consts'
 import _ from 'lodash'
 
-const Index = () => {
+const Index2022 = () => {
   const [loading, setLoading] = useState(false)
   const [results, setResults] = useState([])
 
@@ -53,7 +53,7 @@ const Index = () => {
     const secure =
       'https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/2022PRE/2?key=d72d3429cba640eebd708317bab9c83e'
     axios.get(secure).then(async (parsed) => {
-      const assignments = await assignTeams(parsed.data, btff2022, nflTeams)
+      const assignments = await assignTeams(parsed.data, becker2022, nflTeams)
       setResults(assignments)
       setLoading(false)
     })
@@ -61,7 +61,7 @@ const Index = () => {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.h1}>BTFF 2021 Unofficial Draft Order</h1>
+      <h1 style={styles.h1}>Becker Fam 2021 Unofficial Draft Order</h1>
       {loading ? 'Loading...' : <Lister results={results} />}
       <h4>
         Draft Results are determined by the 2021 Week 2 of the NFL Preseason.
@@ -83,4 +83,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default Index2022
