@@ -64,7 +64,7 @@ const Index = () => {
       <h1 style={styles.h1}>BTFF 2021 Unofficial Draft Order</h1>
       {loading ? 'Loading...' : <Lister results={results} />}
       <h4>
-        Draft Results are determined by the 2021 Week 2 of the NFL Preseason.
+        Draft Results are determined by the 2022 Week 2 of the NFL Preseason.
       </h4>
       <p style={styles.p}>
         By the selection above, the total number of shots accumulated by those
