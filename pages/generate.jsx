@@ -107,7 +107,7 @@ const Generate = () => {
         opportunity to resolve in any creative way possible.
       </p>
       <p style={styles.p}>
-        If this doesn't come to a resolution, another random ranking will
+        If this doesn&apos;t come to a resolution, another random ranking will
         determine those slots.
       </p>
     </div>

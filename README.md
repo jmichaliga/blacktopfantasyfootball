@@ -39,6 +39,6 @@ This is a simple application to bring in randomization techniques in order to de
 
 By the selection above, the total number of points scored by those two teams combined will rank the players in order of which they will make their selections.
 If by chance there are any ties, those within the tie have the opportunity to resolve in any creative way possible.
-If this doesn't come to a resolution, another random ranking will determine those slots.
+If this doesn&apos;t come to a resolution, another random ranking will determine those slots.
 
 ## Houston and Dallas were removed due to Hurricane Harvey ##

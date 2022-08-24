@@ -47,7 +47,7 @@ class Becker extends react.Component {
         <h4>Draft Results are determined by the 2019 Week 3 Preseason Game.</h4>
         <p style={styles.p}>By the selection above, the total number of points scored by those two teams combined will rank the players in order of which they will make their selections.</p>
         <p style={styles.p}>If by chance there are any ties, those within the tie have the opportunity to resolve in any creative way possible.</p>
-        <p style={styles.p}>If this doesn't come to a resolution, another random ranking will determine those slots.</p>
+        <p style={styles.p}>If this doesn&apos;t come to a resolution, another random ranking will determine those slots.</p>
       </div>
     )
   }
