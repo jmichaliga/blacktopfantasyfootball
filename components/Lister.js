@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"
 import styles from "./styles";
 
 const Lister = ({ results }) => (
@@ -17,11 +18,11 @@ const Lister = ({ results }) => (
               </span>
             </div>
             <div style={styles.flex}>
-              <img style={styles.img} src={result.img1} alt={result.team1} />
+              <Image src={result.img1} alt={result.team1} width="64" height="64"/>
               <span style={styles.span2}>{result.score1 || 0}</span>
             </div>
             <div style={styles.flex}>
-              <img style={styles.img} src={result.img2} alt={result.team2} />
+              <Image  src={result.img2} alt={result.team2} width="64" height="64" />
               <span style={styles.span2}>{result.score2 || 0}</span>
             </div>
           </div>

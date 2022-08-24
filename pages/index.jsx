@@ -40,7 +40,6 @@ const Index = () => {
     let count = 0;
 
     rosters.forEach((player) => {
-      console.log("BEFORE", teamCopy);
       const team1 = randIdx(teamCopy);
       removeValue(teamCopy, team1);
       const team2 = randIdx(teamCopy);
@@ -51,12 +50,11 @@ const Index = () => {
         team2: team2,
         score1: findScoreByTeam(data, team1),
         score2: findScoreByTeam(data, team2),
-        img1: `../../public/${team1}.gif`,
-        img2: `../../public/${team2}.gif`,
+        img1: `/${team1}.gif`,
+        img2: `/${team2}.gif`,
       };
       assignments.push(obj);
       count++;
-
     });
 
     return assignments;
@@ -76,7 +74,7 @@ const Index = () => {
       <h1 style={styles.h1}>BTFF 2022 Unofficial Draft Order</h1>
       {loading ? "Loading..." : <Lister results={results} />}
       <h4>
-        Draft Results are determined by the 2022 Week 2 of the NFL Preseason.
+        Draft Results are determined by the 2022 Week 3 of the NFL Preseason.
       </h4>
       <p style={styles.p}>
         By the selection above, the total number of shots accumulated by those
