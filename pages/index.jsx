@@ -51,8 +51,8 @@ const Index = () => {
         team2: team2,
         score1: findScoreByTeam(data, team1),
         score2: findScoreByTeam(data, team2),
-        img1: `../../static/${team1}.gif`,
-        img2: `../../static/${team2}.gif`,
+        img1: `../../public/${team1}.gif`,
+        img2: `../../public/${team2}.gif`,
       };
       assignments.push(obj);
       count++;
