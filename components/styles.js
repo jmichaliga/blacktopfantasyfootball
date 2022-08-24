@@ -1,3 +1,5 @@
+import { ClientRequest } from "http"
+
 const styles = {
   container: {
     textAlign: 'center',
@@ -20,32 +22,40 @@ const styles = {
     padding: 16,
     display: 'inline-block',
     marginLeft: 8,
-    marginBottom: 8
+    marginBottom: 8,
+    borderRadius: 8
   },
   row: {
     width: '100%',
-    display: 'flex'
+    display: 'flex',
+    gap: 8
   },
   flex: {
-    flex: 1
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  flexCol: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 8
   },
   span: {
     margin: '0px 8px',
-    float: 'left',
     textAlign: 'center',
     fontFamily: 'Helvetica Neue',
     fontSize: 16,
-    width: 64,
     textShadow: '1px 1px 2px rgba(0,0,0,0.2)'
   },
   span2: {
-    margin: '10px',
-    float: 'left',
+    margin: '8px',
     textAlign: 'center',
     fontFamily: 'monospace',
     fontSize: 24,
     alignContent: 'center',
-    width: 100,
+    width: 96,
     textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
     background: '#CCC',
     borderRadius: '4px',

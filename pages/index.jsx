@@ -1,68 +1,81 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import styles from '../components/styles'
-import Lister from '../components/Lister'
+import { useState, useEffect } from "react";
+import axios from "axios";
+import styles from "../components/styles";
+import Lister from "../components/Lister";
 
-import { nflTeams, btff2022 } from '../consts'
-import _ from 'lodash'
+import { nflTeams, btff2022 } from "../consts";
+// import _ from "lodash";
 
 const Index = () => {
-  const [loading, setLoading] = useState(false)
-  const [results, setResults] = useState([])
+  const [loading, setLoading] = useState(false);
+  const [results, setResults] = useState([]);
 
   const removeValue = (array, id) => {
-    const index = array.indexOf(id)
+    const index = array.indexOf(id);
     if (index > -1) {
-      array.splice(index, 1)
+      array.splice(index, 1);
     }
-    return array
-  }
+    return array;
+  };
 
   const randIdx = (array) => {
-    return array[Math.floor(Math.random() * array.length)]
-  }
+    return array[Math.floor(Math.random() * array.length)];
+  };
+
+  const findScoreByTeam = (data, team) => {
+    const awayIdx = Object.values(data).findIndex((g) => g.AwayTeam == team);
+    const homeIdx = Object.values(data).findIndex((g) => g.HomeTeam == team);
+
+    if (awayIdx !== -1) {
+      return data[awayIdx].AwayScore;
+    } else if (homeIdx !== -1) {
+      return data[homeIdx].HomeScore;
+    } else {
+      return 0
+    }
+  };
 
   const assignTeams = (data, rosters, teams) => {
-    const assignments = []
-    const teamCopy = teams
-    let count = 0
+    const assignments = [];
+    const teamCopy = teams;
+    let count = 0;
+
     rosters.forEach((player) => {
-      console.log('BEFORE', teamCopy)
-      const team1 = randIdx(teamCopy)
-      removeValue(teamCopy, team1)
-      const team2 = randIdx(teamCopy)
-      removeValue(teamCopy, team2)
+      console.log("BEFORE", teamCopy);
+      const team1 = randIdx(teamCopy);
+      removeValue(teamCopy, team1);
+      const team2 = randIdx(teamCopy);
+      removeValue(teamCopy, team2);
       const obj = {
         name: player.name,
         team1: team1,
         team2: team2,
-        score1: data[count].AwayScore,
-        score2: data[count].HomeScore,
+        score1: findScoreByTeam(data, team1),
+        score2: findScoreByTeam(data, team2),
         img1: `../../static/${team1}.gif`,
-        img2: `../../static/${team2}.gif`
-      }
-      assignments.push(obj)
-      count++
-      console.log('AFTER', teamCopy)
-    })
+        img2: `../../static/${team2}.gif`,
+      };
+      assignments.push(obj);
+      count++;
 
-    return assignments
-  }
+    });
+
+    return assignments;
+  };
 
   useEffect(() => {
-    const secure =
-      'https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/2022PRE/2?key=d72d3429cba640eebd708317bab9c83e'
+    const secure = `https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/2022PRE/3?key=${process.env.NEXT_PUBLIC_SPORTSDATA_API_KEY}`;
     axios.get(secure).then(async (parsed) => {
-      const assignments = await assignTeams(parsed.data, btff2022, nflTeams)
-      setResults(assignments)
-      setLoading(false)
-    })
-  }, [])
+      const assignments = await assignTeams(parsed.data, btff2022, nflTeams);
+      setResults(assignments);
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.h1}>BTFF 2021 Unofficial Draft Order</h1>
-      {loading ? 'Loading...' : <Lister results={results} />}
+      <h1 style={styles.h1}>BTFF 2022 Unofficial Draft Order</h1>
+      {loading ? "Loading..." : <Lister results={results} />}
       <h4>
         Draft Results are determined by the 2022 Week 2 of the NFL Preseason.
       </h4>
@@ -80,7 +93,7 @@ const Index = () => {
         determine those slots.
       </p>
     </div>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
