@@ -62,7 +62,7 @@ const Becker2022 = () => {
   };
 
   useEffect(() => {
-    const secure = `https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/2022PRE/3?key=${process.env.NEXT_PUBLIC_SPORTSDATA_API_KEY}`;
+    const secure = `https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/2022PRE/3?key=d72d3429cba640eebd708317bab9c83e`;
     axios.get(secure).then(async (parsed) => {
       const assignments = await assignTeams(parsed.data, becker2022, nflTeams);
       setResults(assignments);
