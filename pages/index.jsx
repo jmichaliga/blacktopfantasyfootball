@@ -4,7 +4,6 @@ import styles from "../components/styles";
 import Lister from "../components/Lister";
 
 import { nflTeams, btff2022 } from "../consts";
-// import _ from "lodash";
 
 const Index = () => {
   const [loading, setLoading] = useState(false);

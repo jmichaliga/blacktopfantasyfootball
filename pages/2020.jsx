@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import _ from "lodash";
 import axios from "axios";
 import styles from "../components/styles";
 import Lister from "../components/Lister";
@@ -26,53 +25,6 @@ const Index2020 = () => {
   };
 
   const assignTeams = (feed) => {
-    // players = _.shuffle(players);
-    // teams = _.shuffle(teams);
-    // console.log("feed>", feed);
-
-    // players.forEach((p) => {
-    //   let selection = {
-    //     name: "",
-    //     team1: "",
-    //     pd1: "",
-    //     team2: "",
-    //     pd2: "",
-    //     score1: 0,
-    //     score2: 0,
-    //     img1: null,
-    //     img2: null,
-    //   };
-
-    //   selection.name = p;
-
-    //   selection.team1 = _.sample(teams);
-    //   selection.pd1 = _.sample(pds);
-
-    //   let f = gameSlots[selection.team1];
-
-    //   if(feed.dates[f[0]].games[f[1]].linescore.periods.length) {
-    //     selection.score1 =
-    //       feed.dates[f[0]].games[f[1]].linescore.periods[selection.pd1 - 1][f[2]]
-    //         .shotsOnGoal || 0;
-    //   }
-
-    //   selection.img1 = "./static/NHL-" + selection.team1 + ".png";
-
-    //   selection.team2 = _.sample(teams);
-    //   selection.pd2 = _.sample(pds);
-
-    //   let g = gameSlots[selection.team2];
-    //   if(feed.dates[g[0]].games[g[1]].linescore.periods.length) {
-    //     selection.score2 =
-    //       feed.dates[g[0]].games[g[1]].linescore.periods[selection.pd2 - 1][g[2]]
-    //         .shotsOnGoal || 0;
-    //   }
-
-    //   selection.img2 = "./static/NHL-" + selection.team2 + ".png";
-
-    //   results.push(selection);
-    // });
-
     return assignScores(scores, results);
   };
 
