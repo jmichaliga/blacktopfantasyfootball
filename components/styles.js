@@ -23,7 +23,8 @@ const styles = {
     display: 'inline-block',
     marginLeft: 8,
     marginBottom: 8,
-    borderRadius: 8
+    borderRadius: 8,
+    width: '600px'
   },
   row: {
     width: '100%',
@@ -44,10 +45,11 @@ const styles = {
   },
   span: {
     margin: '0px 8px',
-    textAlign: 'center',
+    textAlign: 'left',
     fontFamily: 'Helvetica Neue',
     fontSize: 16,
-    textShadow: '1px 1px 2px rgba(0,0,0,0.2)'
+    textShadow: '1px 1px 2px rgba(0,0,0,0.2)',
+    width: '120px',
   },
   span2: {
     margin: '8px',

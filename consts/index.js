@@ -1,37 +1,37 @@
 export const nflTeams = [
-  "ARI",
-  "ATL",
-  "BAL",
-  "BUF",
-  "CAR",
-  "CHI",
-  "CIN",
-  "CLE",
-  "DAL",
-  "DEN",
-  "DET",
-  "GB",
-  "HOU",
-  "IND",
-  "JAX",
-  "KC",
-  "LAC",
-  "LAR",
-  "LV",
-  "MIA",
-  "MIN",
-  "NE",
-  "NO",
-  "NYJ",
-  "NYG",
-  "PHI",
-  "PIT",
-  "SF",
-  "SEA",
-  "TB",
-  "TEN",
-  "WAS",
-];
+  'ARI',
+  'ATL',
+  'BAL',
+  'BUF',
+  'CAR',
+  'CHI',
+  'CIN',
+  'CLE',
+  'DAL',
+  'DEN',
+  'DET',
+  'GB',
+  'HOU',
+  'IND',
+  'JAX',
+  'KC',
+  'LAR',
+  'MIA',
+  'MIN',
+  'NE',
+  'NO',
+  'NYJ',
+  'NYG',
+  'OAK',
+  'PHI',
+  'PIT',
+  'LAC',
+  'SF',
+  'SEA',
+  'TB',
+  'TEN',
+  'WAS'
+]
 
 export const btffRoster = [
   "GLANZER",
@@ -724,7 +724,7 @@ export const becker2022 = [
   },
 ];
 
-export const btff2022 = [
+export const btsh2022 = [
   {
     name: "BARCH",
   },
@@ -768,3 +768,105 @@ export const btff2022 = [
     name: "WELCH",
   },
 ];
+
+export const btff2022 = [
+  {
+    name: 'PROBERT',
+    team1: 'BAL',
+    team2: 'IND',
+    score1: 17,
+    score2: 27
+  },
+  {
+    name: 'BARCH',
+    team1: 'NE',
+    team2: 'LAR',
+    score1: 6,
+    score2: 7
+  },
+  {
+    name: 'PERRAS',
+    team1: 'BUF',
+    team2: 'DEN',
+    score1: 0,
+    score2: 23
+  },
+  {
+    name: 'POPACK',
+    team1: 'PIT',
+    team2: 'SEA',
+    score1: 19,
+    score2: 26
+  },
+  {
+    name: 'BECKER',
+    team1: 'LV',
+    team2: 'TB',
+    score1: 23,
+    score2: 10
+  },
+  {
+    name: 'TAGS',
+    team1: 'MIA',
+    team2: 'NYJ',
+    score1: 48,
+    score2: 31
+  },
+  {
+    name: 'MICHALIGA',
+    team1: 'NYG',
+    team2: 'ARI',
+    score1: 27,
+    score2: 23
+  },
+  {
+    name: 'DeRUBIO',
+    team1: 'CLE',
+    team2: 'DAL',
+    score1: 20,
+    score2: 27
+  },
+  {
+    name: 'CASCA',
+    team1: 'NO',
+    team2: 'GB',
+    score1: 27,
+    score2: 10
+  },
+  {
+    name: 'RUSSO',
+    team1: 'DET',
+    team2: 'SF',
+    score1: 9,
+    score2: 0
+  },
+  {
+    name: 'KAZIN',
+    team1: 'JAX',
+    team2: 'WAS',
+    score1: 12,
+    score2: 15
+  },
+  {
+    name: 'GLANZER',
+    team1: 'LAC',
+    team2: 'CHI',
+    score1: 10,
+    score2: 21
+  },
+  {
+    name: 'FREY',
+    team1: 'PHI',
+    team2: 'ATL',
+    score1: 10,
+    score2: 28
+  },
+  {
+    name: 'WELCH',
+    team1: 'MIN',
+    team2: 'CIN',
+    score1: 13,
+    score2: 16
+  }
+]
+
