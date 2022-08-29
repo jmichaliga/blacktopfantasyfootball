@@ -18,11 +18,11 @@ const Lister = (props) => {
                 </span>
               </div>
               <div style={styles.flex}>
-                <img style={styles.img} src={result.img1} alt={result.team1} />
+                <img style={styles.img} src={`../../static/${result.team1}.gif`} alt={result.team1} />
                 <span style={styles.span2}>{result.score1}</span>
               </div>
               <div style={styles.flex}>
-                <img style={styles.img} src={result.img2} alt={result.team2} />
+                <img style={styles.img} src={`../../static/${result.team2}.gif`} alt={result.team2} />
                 <span style={styles.span2}>{result.score2}</span>
               </div>
             </div>

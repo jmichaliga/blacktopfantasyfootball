@@ -15,7 +15,7 @@ export const nflTeams = [
   'IND',
   'JAX',
   'KC',
-  'LA',
+  'LAR',
   'MIA',
   'MIN',
   'NE',
@@ -732,52 +732,101 @@ export const becker2021 = [
 
 export const btff2022 = [
   {
-    name: 'PROBERT'
+    name: 'PROBERT',
+    team1: 'BAL',
+    team2: 'IND',
+    score1: 17,
+    score2: 27
   },
   {
-    name: 'BARCH'
+    name: 'BARCH',
+    team1: 'NE',
+    team2: 'LAR',
+    score1: 6,
+    score2: 7
   },
   {
-    name: 'PERRAS'
+    name: 'PERRAS',
+    team1: 'BUF',
+    team2: 'DEN',
+    score1: 0,
+    score2: 23
   },
   {
-    name: 'POPACK'
+    name: 'POPACK',
+    team1: 'PIT',
+    team2: 'SEA',
+    score1: 19,
+    score2: 26
   },
   {
-    name: 'BECKER'
-  },
-
-  {
-    name: 'TAGS'
-  },
-
-  {
-    name: 'MICHALIGA'
+    name: 'BECKER',
+    team1: 'BAL',
+    team2: 'IND',
+    score1: 17,
+    score2: 27
   },
   {
-    name: 'DeRUBIO'
-  },
-
-  {
-    name: 'CASCA'
-  },
-
-  {
-    name: 'RUSSO'
+    name: 'TAGS',
+    team1: 'MIA',
+    team2: 'NYJ',
+    score1: 48,
+    score2: 31
   },
   {
-    name: 'KAZIN'
+    name: 'MICHALIGA',
+    team1: 'NYG',
+    team2: 'ARI',
+    score1: 27,
+    score2: 23
   },
-
   {
-    name: 'GLANZER'
+    name: 'DeRUBIO',
+    team1: 'CLE',
+    team2: 'DAL',
+    score1: 20,
+    score2: 27
   },
-
   {
-    name: 'FREY'
+    name: 'CASCA',
+    team1: 'NO',
+    team2: 'GB',
+    score1: 27,
+    score2: 10
   },
-
   {
-    name: 'WELCH'
+    name: 'RUSSO',
+    team1: 'DET',
+    team2: 'SF',
+    score1: 9,
+    score2: 0
+  },
+  {
+    name: 'KAZIN',
+    team1: 'JAX',
+    team2: 'WAS',
+    score1: 12,
+    score2: 15
+  },
+  {
+    name: 'GLANZER',
+    team1: 'LAC',
+    team2: 'CHI',
+    score1: 10,
+    score2: 21
+  },
+  {
+    name: 'FREY',
+    team1: 'PHI',
+    team2: 'ATL',
+    score1: 10,
+    score2: 28
+  },
+  {
+    name: 'WELCH',
+    team1: 'MIN',
+    team2: 'CIN',
+    score1: 13,
+    score2: 16
   }
 ]
